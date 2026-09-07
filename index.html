@@ -1,0 +1,3912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MindRush</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#f5f7fb;
+    color:#172033;
+    font-family:Arial,Helvetica,sans-serif
+}
+
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
+
+.app{
+    width:min(1050px,94%);
+    margin:auto;
+    padding:18px 0 50px
+}
+
+.topbar{
+    height:64px;
+    background:#fff;
+    border:1px solid #e2e7ef;
+    border-radius:16px;
+    padding:10px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(20,30,50,.05)
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px
+}
+
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:#172033;
+    color:#fff;
+    font-weight:900;
+    font-size:19px
+}
+
+.brand strong{display:block;font-size:16px}
+.brand small{color:#8b94a5;font-size:10px}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#697386;
+    font-size:11px
+}
+
+.profile b{color:#172033}
+
+.xpbar{
+    width:85px;
+    height:6px;
+    background:#edf0f4;
+    border-radius:10px;
+    overflow:hidden
+}
+
+#xpFill{
+    display:block;
+    height:100%;
+    width:0%;
+    background:#377dff
+}
+
+.heading{
+    padding:42px 2px 22px
+}
+
+.heading span{
+    color:#377dff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px
+}
+
+.heading h1{
+    margin:6px 0;
+    font-size:31px
+}
+
+.heading p{
+    margin:0;
+    color:#7b8597;
+    font-size:13px
+}
+
+.challenge-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px
+}
+
+.challenge{
+    border:1px solid #e2e7ef;
+    background:#fff;
+    border-radius:17px;
+    padding:17px;
+    display:grid;
+    grid-template-columns:50px 1fr auto;
+    align-items:center;
+    gap:13px;
+    text-align:left;
+    color:#172033;
+    transition:.15s
+}
+
+.challenge:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(20,30,50,.07)
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    font-size:22px;
+    font-weight:900
+}
+
+.i1{background:#edf4ff;color:#377dff}
+.i2{background:#f1edff;color:#7653dc}
+.i3{background:#eafaf2;color:#18a768}
+.i4{background:#fff2e5;color:#e88928}
+.i5{background:#ffedf2;color:#d64d76}
+
+.challenge h2{
+    margin:0 0 4px;
+    font-size:16px
+}
+
+.challenge p{
+    margin:0;
+    color:#7b8597;
+    font-size:12px;
+    line-height:1.4
+}
+
+.challenge>b{
+    color:#377dff;
+    font-size:11px
+}
+
+.hidden{display:none!important}
+
+.back{
+    margin:18px 0 10px;
+    border:0;
+    background:transparent;
+    color:#687286;
+    font-weight:700;
+    padding:7px 0
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #e2e7ef;
+    border-radius:19px;
+    padding:22px;
+    box-shadow:0 5px 20px rgba(20,30,50,.04)
+}
+
+.panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+
+.panel-head h2{
+    margin:0;
+    font-size:24px
+}
+
+.panel-head p{
+    margin:5px 0 0;
+    color:#7b8597;
+    font-size:12px
+}
+
+.primary{
+    border:0;
+    background:#172033;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:800
+}
+
+.secondary{
+    border:1px solid #dfe4ec;
+    background:#fff;
+    color:#172033;
+    padding:11px 17px;
+    border-radius:10px;
+    font-weight:700
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    margin:20px 0
+}
+
+.option{
+    border:1px solid #dfe4ec;
+    background:#fff;
+    padding:12px;
+    border-radius:10px;
+    font-weight:800
+}
+
+.option.active{
+    background:#172033;
+    color:#fff;
+    border-color:#172033
+}
+
+.custom{
+    display:flex;
+    gap:9px;
+    margin-top:10px
+}
+
+.custom input{
+    width:130px;
+    border:1px solid #dfe4ec;
+    border-radius:10px;
+    padding:11px;
+    outline:none
+}
+
+.timer-big{
+    text-align:center;
+    font-size:58px;
+    font-weight:900;
+    margin:28px 0 12px
+}
+
+.timer-big.warning{
+    color:#cc405b
+}
+
+.stats-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin:15px 0
+}
+
+.mini-stat{
+    background:#f8f9fc;
+    border:1px solid #e8ebf1;
+    padding:10px;
+    border-radius:11px;
+    text-align:center
+}
+
+.mini-stat small{
+    display:block;
+    color:#8992a2;
+    font-size:9px
+}
+
+.mini-stat b{
+    display:block;
+    margin-top:4px;
+    font-size:17px
+}
+
+.typing-text{
+    background:#f8f9fc;
+    border:1px solid #e8ebf1;
+    border-radius:13px;
+    padding:18px;
+    line-height:2;
+    font-size:18px;
+    margin:18px 0;
+    min-height:90px;
+    word-break:break-word
+}
+
+.char-correct{
+    color:#15915a;
+    opacity:.75
+}
+
+.char-wrong{
+    color:#cc405b;
+    background:#ffe7ed;
+    border-radius:3px
+}
+
+.char-current{
+    border-bottom:2px solid #377dff
+}
+
+.typing-input{
+    width:100%;
+    min-height:120px;
+    resize:none;
+    border:1px solid #dfe4ec;
+    border-radius:12px;
+    padding:14px;
+    font-size:17px;
+    outline:none
+}
+
+.typing-input:focus{
+    border-color:#377dff
+}
+
+.typing-info{
+    display:flex;
+    justify-content:space-between;
+    color:#8992a2;
+    font-size:11px;
+    margin-top:9px
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    margin:18px 0
+}
+
+.metric{
+    background:#f8f9fc;
+    border:1px solid #e8ebf1;
+    border-radius:12px;
+    padding:12px
+}
+
+.metric small{
+    display:block;
+    color:#8992a2;
+    font-size:9px
+}
+
+.metric b{
+    display:block;
+    font-size:19px;
+    margin-top:5px
+}
+
+.good{color:#15915a}
+.bad{color:#cc405b}
+
+.chart-box{
+    border:1px solid #e8ebf1;
+    border-radius:14px;
+    padding:13px;
+    margin:14px 0
+}
+
+.chart-box strong{
+    font-size:12px
+}
+
+canvas{
+    display:block;
+    width:100%;
+    height:210px
+}
+
+.analysis-list{
+    display:grid;
+    gap:7px;
+    margin:12px 0 20px
+}
+
+.analysis{
+    padding:11px;
+    border-radius:10px;
+    background:#f8f9fc;
+    font-size:12px
+}
+
+.word-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:10px 0 18px
+}
+
+.word-bad{
+    padding:6px 9px;
+    background:#fff0f3;
+    color:#c43c57;
+    border:1px solid #ffd6df;
+    border-radius:7px;
+    font-size:11px
+}
+
+.target{
+    text-align:center;
+    background:#f8f9fc;
+    border-radius:14px;
+    padding:23px;
+    margin:20px 0
+}
+
+.target small{color:#8992a2}
+
+.target strong{
+    display:block;
+    font-size:44px;
+    margin-top:4px
+}
+
+.input{
+    width:100%;
+    padding:13px;
+    border:1px solid #dfe4ec;
+    border-radius:10px;
+    outline:none;
+    font-size:17px
+}
+
+.sequence{
+    text-align:center;
+    font-size:31px;
+    font-weight:900;
+    letter-spacing:3px;
+    padding:38px 4px
+}
+
+.memory-number{
+    min-height:100px;
+    display:grid;
+    place-items:center;
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:7px;
+    padding:25px
+}
+
+@media(max-width:650px){
+
+    .challenge-grid{
+        grid-template-columns:1fr
+    }
+
+    .summary,
+    .stats-row{
+        grid-template-columns:1fr 1fr
+    }
+
+    .options{
+        grid-template-columns:1fr 1fr
+    }
+
+    .profile small{
+        display:none
+    }
+
+    .xpbar{
+        width:55px
+    }
+
+    .typing-text{
+        font-size:16px
+    }
+
+    .timer-big{
+        font-size:48px
+    }
+}
+
+@media(max-width:430px){
+
+    .challenge{
+        grid-template-columns:45px 1fr
+    }
+
+    .challenge>b{
+        display:none
+    }
+
+    .icon{
+        width:45px;
+        height:45px
+    }
+
+    .custom{
+        flex-direction:column
+    }
+
+    .custom input{
+        width:100%
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="logo">M</div>
+
+        <div>
+            <strong>MindRush</strong>
+            <small>Challenge Hub</small>
+        </div>
+    </div>
+
+    <div class="profile">
+
+        <span>
+            LV <b id="level">1</b>
+        </span>
+
+        <div class="xpbar">
+            <span id="xpFill"></span>
+        </div>
+
+        <small id="xpText">0/100 XP</small>
+
+    </div>
+
+</header>
+
+
+<section id="home">
+
+    <div class="heading">
+
+        <span>CHALLENGES</span>
+
+        <h1>Choose a challenge</h1>
+
+        <p>
+            Train calculation, speed, memory and logic.
+        </p>
+
+    </div>
+
+
+    <div class="challenge-grid">
+
+        <button class="challenge" data-game="math">
+
+            <div class="icon i1">∑</div>
+
+            <div>
+                <h2>Math Quiz</h2>
+                <p>
+                    Adaptive difficulty, streaks and analysis.
+                </p>
+            </div>
+
+            <b>Play →</b>
+
+        </button>
+
+
+        <button class="challenge" data-game="typing">
+
+            <div class="icon i2">⌨</div>
+
+            <div>
+                <h2>Typing Speed</h2>
+                <p>
+                    Custom timer, WPM, accuracy and mistakes.
+                </p>
+            </div>
+
+            <b>Play →</b>
+
+        </button>
+
+
+        <button class="challenge" data-game="number">
+
+            <div class="icon i3">#</div>
+
+            <div>
+                <h2>Number Puzzle</h2>
+                <p>
+                    Solve arithmetic target challenges.
+                </p>
+            </div>
+
+            <b>Play →</b>
+
+        </button>
+
+
+        <button class="challenge" data-game="memory">
+
+            <div class="icon i4">◉</div>
+
+            <div>
+                <h2>Memory Challenge</h2>
+                <p>
+                    Remember increasingly longer sequences.
+                </p>
+            </div>
+
+            <b>Play →</b>
+
+        </button>
+
+
+        <button class="challenge" data-game="sequence">
+
+            <div class="icon i5">◆</div>
+
+            <div>
+                <h2>Sequence Puzzle</h2>
+                <p>
+                    Find the missing number in patterns.
+                </p>
+            </div>
+
+            <b>Play →</b>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="gameScreen" class="hidden">
+
+    <button class="back" id="back">
+        ← All Challenges
+    </button>
+
+    <div id="game"></div>
+
+</section>
+
+</div>
+
+
+<script>
+"use strict";
+
+
+/* =====================================================
+   GLOBAL STORAGE
+===================================================== */
+
+const STORAGE_KEY = "mindrush_v3";
+
+let state = null;
+
+try{
+    state = JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+    );
+}catch(error){
+    state = null;
+}
+
+if(!state || typeof state !== "object"){
+    state = {
+        xp:0,
+        level:1,
+        bestScore:0,
+        bestStreak:0,
+        typingHistory:[]
+    };
+}
+
+if(!Array.isArray(state.typingHistory)){
+    state.typingHistory = [];
+}
+
+
+function save(){
+    try{
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(state)
+        );
+    }catch(error){
+        console.warn("Save failed:",error);
+    }
+
+    updateHeader();
+}
+
+
+function updateHeader(){
+
+    document.getElementById("level").textContent =
+        state.level;
+
+    document.getElementById("xpText").textContent =
+        state.xp + "/100 XP";
+
+    document.getElementById("xpFill").style.width =
+        state.xp + "%";
+}
+
+
+function addXP(amount){
+
+    state.xp += amount;
+
+    while(state.xp >= 100){
+        state.xp -= 100;
+        state.level++;
+    }
+
+    save();
+}
+
+updateHeader();
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+const home =
+    document.getElementById("home");
+
+const gameScreen =
+    document.getElementById("gameScreen");
+
+const game =
+    document.getElementById("game");
+
+const back =
+    document.getElementById("back");
+
+
+let activeIntervals = [];
+let activeTimeouts = [];
+
+
+function makeInterval(fn,time){
+
+    const id = setInterval(fn,time);
+
+    activeIntervals.push(id);
+
+    return id;
+}
+
+
+function makeTimeout(fn,time){
+
+    const id = setTimeout(fn,time);
+
+    activeTimeouts.push(id);
+
+    return id;
+}
+
+
+function clearAllTimers(){
+
+    activeIntervals.forEach(
+        function(id){
+            clearInterval(id);
+        }
+    );
+
+    activeTimeouts.forEach(
+        function(id){
+            clearTimeout(id);
+        }
+    );
+
+    activeIntervals = [];
+    activeTimeouts = [];
+}
+
+
+document
+.querySelectorAll(".challenge")
+.forEach(function(card){
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            openGame(
+                this.dataset.game
+            );
+
+        }
+    );
+
+});
+
+
+back.addEventListener(
+    "click",
+    function(){
+
+        clearAllTimers();
+
+        typingRunning = false;
+
+        game.innerHTML = "";
+
+        gameScreen.classList.add("hidden");
+
+        home.classList.remove("hidden");
+
+    }
+);
+
+
+function openGame(type){
+
+    clearAllTimers();
+
+    typingRunning = false;
+
+    home.classList.add("hidden");
+
+    gameScreen.classList.remove("hidden");
+
+
+    if(type === "math"){
+        mathIntro();
+    }
+    else if(type === "typing"){
+        typingIntro();
+    }
+    else if(type === "number"){
+        numberIntro();
+    }
+    else if(type === "memory"){
+        memoryIntro();
+    }
+    else if(type === "sequence"){
+        sequenceIntro();
+    }
+}
+
+
+function random(min,max){
+
+    return Math.floor(
+        Math.random() *
+        (max-min+1)
+    ) + min;
+}
+
+
+/* =====================================================
+   MATH QUIZ
+===================================================== */
+
+const DIFFICULTIES = {
+
+    easy:{
+        min:1,
+        max:25,
+        time:25,
+        ops:["+","-"]
+    },
+
+    normal:{
+        min:5,
+        max:60,
+        time:20,
+        ops:["+","-","×"]
+    },
+
+    hard:{
+        min:10,
+        max:150,
+        time:18,
+        ops:["+","-","×","÷"]
+    },
+
+    expert:{
+        min:20,
+        max:500,
+        time:15,
+        ops:["+","-","×","÷"]
+    }
+
+};
+
+const DIFF_ORDER =
+[
+    "easy",
+    "normal",
+    "hard",
+    "expert"
+];
+
+const DIFF_NAMES = {
+    easy:"Easy",
+    normal:"Normal",
+    hard:"Hard",
+    expert:"Expert"
+};
+
+let mathStartDifficulty = "normal";
+let mathDifficulty = "normal";
+let mathIndex = 0;
+let mathScore = 0;
+let mathCorrect = 0;
+let mathStreak = 0;
+let mathBestStreak = 0;
+let mathResults = [];
+let mathCurrent = null;
+let mathQuestionStarted = 0;
+let mathTimeLeft = 0;
+
+
+function mathIntro(){
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+                <h2>Math Quiz</h2>
+                <p>10 questions • adaptive difficulty</p>
+            </div>
+
+        </div>
+
+        <div class="options">
+
+            ${DIFF_ORDER.map(
+                function(d){
+
+                    return `
+                    <button
+                        class="option ${
+                            d === mathStartDifficulty
+                            ? "active"
+                            : ""
+                        }"
+                        data-diff="${d}"
+                    >
+                        ${DIFF_NAMES[d]}
+                    </button>
+                    `;
+
+                }
+            ).join("")}
+
+        </div>
+
+        <button
+            class="primary"
+            id="startMath"
+        >
+            Start Quiz →
+        </button>
+
+    </div>
+
+    `;
+
+
+    document
+    .querySelectorAll("[data-diff]")
+    .forEach(function(button){
+
+        button.onclick =
+        function(){
+
+            mathStartDifficulty =
+                this.dataset.diff;
+
+            document
+            .querySelectorAll(
+                "[data-diff]"
+            )
+            .forEach(
+                function(x){
+                    x.classList.remove("active");
+                }
+            );
+
+            this.classList.add("active");
+        };
+
+    });
+
+
+    document.getElementById("startMath").onclick =
+        startMath;
+}
+
+
+function createMathQuestion(){
+
+    const d =
+        DIFFICULTIES[mathDifficulty];
+
+    let a = random(d.min,d.max);
+
+    let b =
+        random(
+            d.min,
+            Math.max(
+                d.min,
+                Math.floor(d.max/2)
+            )
+        );
+
+    let op =
+        d.ops[
+            random(
+                0,
+                d.ops.length-1
+            )
+        ];
+
+    let answer;
+
+
+    if(op === "+"){
+        answer = a+b;
+    }
+    else if(op === "-"){
+        answer = a-b;
+    }
+    else if(op === "×"){
+        answer = a*b;
+    }
+    else{
+        answer = random(2,20);
+        a = b*answer;
+    }
+
+
+    return {
+        text:`${a} ${op} ${b}`,
+        answer:answer,
+        difficulty:mathDifficulty
+    };
+}
+
+
+function makeOptions(answer){
+
+    const options = new Set();
+
+    options.add(answer);
+
+    while(options.size < 4){
+
+        const spread =
+            Math.max(
+                3,
+                Math.ceil(
+                    Math.abs(answer)*.15
+                )
+            );
+
+        const wrong =
+            answer +
+            random(
+                -spread,
+                spread
+            );
+
+        if(wrong !== answer){
+            options.add(wrong);
+        }
+    }
+
+    return Array.from(options)
+        .sort(function(){
+            return Math.random()-.5;
+        });
+}
+
+
+function startMath(){
+
+    clearAllTimers();
+
+    mathDifficulty = mathStartDifficulty;
+    mathIndex = 0;
+    mathScore = 0;
+    mathCorrect = 0;
+    mathStreak = 0;
+    mathBestStreak = 0;
+    mathResults = [];
+
+    nextMath();
+}
+
+
+function nextMath(){
+
+    if(mathIndex >= 10){
+        finishMath();
+        return;
+    }
+
+
+    mathCurrent =
+        createMathQuestion();
+
+
+    mathResults.push({
+        question:mathCurrent.text,
+        answer:mathCurrent.answer,
+        selected:null,
+        correct:false,
+        time:0,
+        difficulty:mathDifficulty
+    });
+
+
+    mathTimeLeft =
+        DIFFICULTIES[
+            mathDifficulty
+        ].time;
+
+
+    renderMath();
+
+
+    mathQuestionStarted =
+        performance.now();
+
+
+    const interval =
+        makeInterval(
+            function(){
+
+                mathTimeLeft--;
+
+                const timer =
+                    document.getElementById(
+                        "mathTimer"
+                    );
+
+                if(timer){
+                    timer.textContent =
+                        mathTimeLeft+"s";
+                }
+
+                if(mathTimeLeft <= 0){
+
+                    clearInterval(interval);
+
+                    submitMath(null);
+                }
+
+            },
+            1000
+        );
+}
+
+
+function renderMath(){
+
+    const options =
+        makeOptions(
+            mathCurrent.answer
+        );
+
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>Math Quiz</h2>
+
+                <p>
+                    ${DIFF_NAMES[mathDifficulty]}
+                    • 🔥 ${mathStreak}
+                </p>
+
+            </div>
+
+            <strong
+                class="timer-big"
+                id="mathTimer"
+                style="font-size:20px;margin:0"
+            >
+                ${mathTimeLeft}s
+            </strong>
+
+        </div>
+
+        <div class="quiz-meta"
+             style="display:flex;justify-content:space-between;color:#8992a2;font-size:11px;margin-top:20px">
+
+            <span>
+                Question ${mathIndex+1}/10
+            </span>
+
+            <span>
+                Score ${mathScore}
+            </span>
+
+        </div>
+
+        <div style="height:6px;background:#edf0f4;border-radius:10px;overflow:hidden;margin-top:7px">
+
+            <span
+                style="
+                    display:block;
+                    height:100%;
+                    width:${mathIndex*10}%;
+                    background:#377dff
+                "
+            ></span>
+
+        </div>
+
+        <div
+            style="
+                text-align:center;
+                font-size:48px;
+                font-weight:900;
+                margin:45px 0 27px
+            "
+        >
+            ${mathCurrent.text}
+        </div>
+
+        <div class="options"
+             style="grid-template-columns:1fr 1fr">
+
+            ${options.map(
+                function(value){
+
+                    return `
+                    <button
+                        class="answer option"
+                        data-answer="${value}"
+                    >
+                        ${value}
+                    </button>
+                    `;
+
+                }
+            ).join("")}
+
+        </div>
+
+        <div style="text-align:center;color:#8992a2;font-size:11px">
+            5 correct answers in a row → difficulty increases
+        </div>
+
+    </div>
+
+    `;
+
+
+    document
+    .querySelectorAll(".answer")
+    .forEach(function(button){
+
+        button.onclick =
+        function(){
+
+            submitMath(
+                Number(
+                    this.dataset.answer
+                )
+            );
+
+        };
+
+    });
+}
+
+
+function submitMath(selected){
+
+    const result =
+        mathResults[
+            mathResults.length-1
+        ];
+
+    if(
+        !result ||
+        result.selected !== null
+    ){
+        return;
+    }
+
+
+    result.selected = selected;
+
+    result.time =
+        Number(
+            (
+                (
+                    performance.now() -
+                    mathQuestionStarted
+                )/1000
+            ).toFixed(2)
+        );
+
+
+    result.correct =
+        selected === mathCurrent.answer;
+
+
+    document
+    .querySelectorAll(".answer")
+    .forEach(function(button){
+
+        button.disabled = true;
+
+        const value =
+            Number(button.dataset.answer);
+
+        if(value === mathCurrent.answer){
+            button.classList.add("good");
+        }
+
+        if(
+            selected !== null &&
+            value === selected &&
+            selected !== mathCurrent.answer
+        ){
+            button.classList.add("bad");
+        }
+
+    });
+
+
+    if(result.correct){
+
+        mathCorrect++;
+
+        mathStreak++;
+
+        mathBestStreak =
+            Math.max(
+                mathBestStreak,
+                mathStreak
+            );
+
+        mathScore +=
+            10 +
+            Math.round(
+                mathTimeLeft*1.5
+            );
+
+        if(mathStreak >= 5){
+            increaseDifficulty();
+        }
+
+    }
+    else{
+        mathStreak = 0;
+    }
+
+
+    makeTimeout(
+        function(){
+
+            mathIndex++;
+
+            nextMath();
+
+        },
+        500
+    );
+}
+
+
+function increaseDifficulty(){
+
+    const index =
+        DIFF_ORDER.indexOf(
+            mathDifficulty
+        );
+
+    if(index < DIFF_ORDER.length-1){
+
+        mathDifficulty =
+            DIFF_ORDER[index+1];
+
+    }
+}
+
+
+function finishMath(){
+
+    clearAllTimers();
+
+    const times =
+        mathResults.map(
+            function(x){
+                return x.time;
+            }
+        );
+
+    const total =
+        times.reduce(
+            function(a,b){
+                return a+b;
+            },
+            0
+        );
+
+    const average =
+        total /
+        Math.max(
+            1,
+            times.length
+        );
+
+    const accuracy =
+        Math.round(
+            mathCorrect/10*100
+        );
+
+    state.bestScore =
+        Math.max(
+            state.bestScore,
+            mathScore
+        );
+
+    state.bestStreak =
+        Math.max(
+            state.bestStreak,
+            mathBestStreak
+        );
+
+    addXP(
+        Math.max(
+            10,
+            mathCorrect*10
+        )
+    );
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <h2>Quiz Complete</h2>
+
+        <p style="color:#7b8597">
+            Your complete performance report
+        </p>
+
+        <div class="summary">
+
+            <div class="metric">
+                <small>SCORE</small>
+                <b>${mathScore}</b>
+            </div>
+
+            <div class="metric">
+                <small>ACCURACY</small>
+                <b>${accuracy}%</b>
+            </div>
+
+            <div class="metric">
+                <small>AVG TIME</small>
+                <b>${average.toFixed(1)}s</b>
+            </div>
+
+            <div class="metric">
+                <small>BEST STREAK</small>
+                <b>🔥 ${mathBestStreak}</b>
+            </div>
+
+        </div>
+
+        <button
+            class="primary"
+            id="mathAgain"
+        >
+            Try Again →
+        </button>
+
+    </div>
+
+    `;
+
+    document.getElementById("mathAgain").onclick =
+        startMath;
+}
+
+
+/* =====================================================
+   TYPING SPEED
+===================================================== */
+
+const typingTexts = [
+
+"Learning becomes easier when you practice a little every day.",
+
+"Accuracy matters because fast mistakes are still mistakes.",
+
+"Small improvements repeated consistently can create strong skills.",
+
+"Focus first and let your speed improve naturally.",
+
+"Practice makes difficult skills easier over time.",
+
+"Good typing requires both speed and accuracy.",
+
+"Small daily progress can build powerful habits.",
+
+"Technology is useful when you control it instead of letting it control you.",
+
+"Clear thinking becomes easier when distractions are reduced.",
+
+"Consistency is more important than trying to improve everything at once."
+
+];
+
+
+let typingDuration = 30;
+
+let typingRunning = false;
+
+let typingRemaining = 0;
+
+let typingStartTime = 0;
+
+let typingTimerId = null;
+
+let typingCurrentText = "";
+
+let typingPosition = 0;
+
+let typingBuffer = "";
+
+let typingCorrectChars = 0;
+
+let typingWrongChars = 0;
+
+let typingTotalChars = 0;
+
+let typingCorrectWords = 0;
+
+let typingWrongWords = 0;
+
+let typingTotalWords = 0;
+
+let typingWordBuffer = "";
+
+let typingWrongWordsList = [];
+
+let typingWordStartPosition = 0;
+
+let typingCharHistory = [];
+
+let typingWordHistory = [];
+
+
+/* ------------------------------
+   TYPING INTRO
+------------------------------ */
+
+function typingIntro(){
+
+    clearAllTimers();
+
+    typingRunning = false;
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>Typing Speed</h2>
+
+                <p>
+                    Choose how long you want to type.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="options">
+
+            <button
+                class="option active"
+                data-time="15"
+            >
+                15 sec
+            </button>
+
+            <button
+                class="option"
+                data-time="30"
+            >
+                30 sec
+            </button>
+
+            <button
+                class="option"
+                data-time="60"
+            >
+                60 sec
+            </button>
+
+            <button
+                class="option"
+                data-time="120"
+            >
+                120 sec
+            </button>
+
+        </div>
+
+
+        <div class="custom">
+
+            <input
+                id="customTime"
+                type="number"
+                min="5"
+                max="600"
+                placeholder="Custom seconds"
+            >
+
+            <button
+                class="secondary"
+                id="customTimeButton"
+            >
+                Use Custom Time
+            </button>
+
+        </div>
+
+
+        <br>
+
+        <button
+            class="primary"
+            id="startTyping"
+        >
+            Start Typing →
+        </button>
+
+    </div>
+
+    `;
+
+
+    document
+    .querySelectorAll("[data-time]")
+    .forEach(function(button){
+
+        button.onclick =
+        function(){
+
+            typingDuration =
+                Number(
+                    this.dataset.time
+                );
+
+            document
+            .querySelectorAll("[data-time]")
+            .forEach(
+                function(x){
+                    x.classList.remove("active");
+                }
+            );
+
+            this.classList.add("active");
+
+        };
+
+    });
+
+
+    document
+    .getElementById(
+        "customTimeButton"
+    )
+    .onclick =
+    function(){
+
+        const value =
+            Number(
+                document.getElementById(
+                    "customTime"
+                ).value
+            );
+
+        if(
+            value >= 5 &&
+            value <= 600
+        ){
+
+            typingDuration = value;
+
+            document
+            .querySelectorAll(
+                "[data-time]"
+            )
+            .forEach(
+                function(x){
+                    x.classList.remove("active");
+                }
+            );
+
+            this.textContent =
+                "✓ "+value+" seconds selected";
+
+        }
+
+    };
+
+
+    document
+    .getElementById(
+        "startTyping"
+    )
+    .onclick =
+    startTyping;
+
+}
+
+
+/* ------------------------------
+   START TYPING
+------------------------------ */
+
+function startTyping(){
+
+    clearAllTimers();
+
+    typingRunning = true;
+
+    typingRemaining =
+        typingDuration;
+
+    typingCorrectChars = 0;
+
+    typingWrongChars = 0;
+
+    typingTotalChars = 0;
+
+    typingCorrectWords = 0;
+
+    typingWrongWords = 0;
+
+    typingTotalWords = 0;
+
+    typingWordBuffer = "";
+
+    typingWrongWordsList = [];
+
+    typingCharHistory = [];
+
+    typingWordHistory = [];
+
+    typingPosition = 0;
+
+    typingBuffer = "";
+
+    typingStartTime =
+        performance.now();
+
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>Typing Speed</h2>
+
+                <p>
+                    Type naturally. Wrong characters stay wrong.
+                </p>
+
+            </div>
+
+            <button
+                class="secondary"
+                id="stopTyping"
+            >
+                Stop
+            </button>
+
+        </div>
+
+
+        <div
+            class="timer-big"
+            id="typingCountdown"
+        >
+            ${formatTime(typingRemaining)}
+        </div>
+
+
+        <div class="stats-row">
+
+            <div class="mini-stat">
+                <small>WPM</small>
+                <b id="liveWpm">0</b>
+            </div>
+
+            <div class="mini-stat">
+                <small>ACCURACY</small>
+                <b id="liveAccuracy">100%</b>
+            </div>
+
+            <div class="mini-stat">
+                <small>WORDS</small>
+                <b id="liveWords">0</b>
+            </div>
+
+            <div class="mini-stat">
+                <small>MISTAKES</small>
+                <b id="liveMistakes">0</b>
+            </div>
+
+        </div>
+
+
+        <div
+            class="typing-text"
+            id="typingDisplay"
+        ></div>
+
+
+        <textarea
+            class="typing-input"
+            id="typingInput"
+            placeholder="Start typing here..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+        ></textarea>
+
+
+        <div class="typing-info">
+
+            <span id="typingProgress">
+                0 characters
+            </span>
+
+            <span>
+                Space = next word
+            </span>
+
+        </div>
+
+    </div>
+
+    `;
+
+
+    getNewTypingText();
+
+
+    const input =
+        document.getElementById(
+            "typingInput"
+        );
+
+
+    input.focus();
+
+
+    input.addEventListener(
+        "input",
+        handleTypingInput
+    );
+
+
+    /*
+       No backspace.
+       No arrow navigation.
+       No deleting previous text.
+    */
+
+    input.addEventListener(
+        "keydown",
+        function(event){
+
+            const blocked =
+            [
+                "Backspace",
+                "Delete",
+                "ArrowLeft",
+                "ArrowRight",
+                "ArrowUp",
+                "ArrowDown",
+                "Home",
+                "End"
+            ];
+
+            if(
+                blocked.includes(
+                    event.key
+                )
+            ){
+
+                event.preventDefault();
+
+            }
+
+        }
+    );
+
+
+    input.addEventListener(
+        "paste",
+        function(event){
+            event.preventDefault();
+        }
+    );
+
+
+    input.addEventListener(
+        "cut",
+        function(event){
+            event.preventDefault();
+        }
+    );
+
+
+    input.addEventListener(
+        "drop",
+        function(event){
+            event.preventDefault();
+        }
+    );
+
+
+    document
+    .getElementById(
+        "stopTyping"
+    )
+    .onclick =
+    finishTyping;
+
+
+    typingTimerId =
+        makeInterval(
+            typingTick,
+            100
+        );
+
+}
+
+
+/* ------------------------------
+   TIME
+------------------------------ */
+
+function formatTime(seconds){
+
+    const total =
+        Math.max(
+            0,
+            Math.ceil(seconds)
+        );
+
+    const minutes =
+        Math.floor(total/60);
+
+    const secs =
+        total%60;
+
+    return (
+        String(minutes).padStart(2,"0") +
+        ":" +
+        String(secs).padStart(2,"0")
+    );
+}
+
+
+function typingTick(){
+
+    if(!typingRunning){
+        return;
+    }
+
+
+    const elapsed =
+        (
+            performance.now() -
+            typingStartTime
+        )/1000;
+
+
+    typingRemaining =
+        Math.max(
+            0,
+            typingDuration-elapsed
+        );
+
+
+    const timer =
+        document.getElementById(
+            "typingCountdown"
+        );
+
+
+    if(timer){
+
+        timer.textContent =
+            formatTime(
+                typingRemaining
+            );
+
+
+        if(
+            typingRemaining <= 5
+        ){
+
+            timer.classList.add(
+                "warning"
+            );
+
+        }
+
+    }
+
+
+    updateLiveTypingStats();
+
+
+    if(
+        typingRemaining <= 0
+    ){
+
+        finishTyping();
+
+    }
+
+}
+
+
+/* ------------------------------
+   NEW TEXT
+------------------------------ */
+
+function getNewTypingText(){
+
+    let text;
+
+
+    do{
+
+        text =
+            typingTexts[
+                random(
+                    0,
+                    typingTexts.length-1
+                )
+            ];
+
+    }
+    while(
+        text === typingCurrentText &&
+        typingTexts.length > 1
+    );
+
+
+    typingCurrentText =
+        text;
+
+    typingPosition = 0;
+
+    typingBuffer = "";
+
+    typingWordBuffer = "";
+
+    typingWordStartPosition = 0;
+
+    renderTypingText();
+
+}
+
+
+/* ------------------------------
+   RENDER TEXT
+------------------------------ */
+
+function renderTypingText(){
+
+    const display =
+        document.getElementById(
+            "typingDisplay"
+        );
+
+
+    if(!display){
+        return;
+    }
+
+
+    let html = "";
+
+
+    for(
+        let i=0;
+        i<typingCurrentText.length;
+        i++
+    ){
+
+        const char =
+            typingCurrentText[i];
+
+
+        if(i < typingPosition){
+
+            /*
+               We compare what the user typed
+               with the target.
+
+               Wrong stays visibly wrong.
+            */
+
+            const typed =
+                typingBuffer[i];
+
+
+            if(
+                typed !== undefined &&
+                typed !== char
+            ){
+
+                html +=
+                    `<span class="char-wrong">
+                        ${escapeHTML(typed)}
+                    </span>`;
+
+            }
+            else{
+
+                html +=
+                    `<span class="char-correct">
+                        ${escapeHTML(char)}
+                    </span>`;
+
+            }
+
+        }
+
+        else if(i === typingPosition){
+
+            html +=
+                `<span class="char-current">
+                    ${escapeHTML(char)}
+                </span>`;
+
+        }
+
+        else{
+
+            html +=
+                escapeHTML(char);
+
+        }
+
+    }
+
+
+    display.innerHTML =
+        html;
+
+}
+
+
+/* ------------------------------
+   INPUT LOGIC
+------------------------------ */
+
+function handleTypingInput(event){
+
+    if(!typingRunning){
+        return;
+    }
+
+
+    const input =
+        event.target;
+
+
+    const value =
+        input.value;
+
+
+    /*
+       Because backspace/delete is blocked,
+       length should only increase.
+    */
+
+    if(
+        value.length <
+        typingPosition
+    ){
+
+        input.value =
+            typingBuffer;
+
+        return;
+
+    }
+
+
+    /*
+       If multiple characters somehow arrive,
+       process them one at a time.
+    */
+
+    while(
+        typingPosition <
+        value.length
+    ){
+
+        const typedChar =
+            value[typingPosition];
+
+
+        const expectedChar =
+            typingCurrentText[
+                typingPosition
+            ];
+
+
+        typingTotalChars++;
+
+
+        if(
+            typedChar ===
+            expectedChar
+        ){
+
+            typingCorrectChars++;
+
+        }
+        else{
+
+            typingWrongChars++;
+
+        }
+
+
+        typingCharHistory.push({
+
+            correct:
+                typedChar === expectedChar,
+
+            expected:
+                expectedChar,
+
+            typed:
+                typedChar
+
+        });
+
+
+        typingWordBuffer +=
+            typedChar;
+
+
+        typingPosition++;
+
+
+        /*
+           SPACE SUBMITS THE WORD.
+        */
+
+        if(
+            expectedChar === " "
+        ){
+
+            const word =
+                typingWordBuffer
+                .trim();
+
+
+            if(word.length > 0){
+
+                typingTotalWords++;
+
+
+                const wordCorrect =
+                    checkWordAccuracy(
+                        word,
+                        typingCurrentText,
+                        typingWordStartPosition
+                    );
+
+
+                if(wordCorrect){
+
+                    typingCorrectWords++;
+
+                }
+                else{
+
+                    typingWrongWords++;
+
+                    typingWrongWordsList.push(
+                        word
+                    );
+
+                }
+
+
+                typingWordHistory.push({
+
+                    word:word,
+
+                    correct:
+                        wordCorrect
+
+                });
+
+            }
+
+
+            typingWordBuffer = "";
+
+            typingWordStartPosition =
+                typingPosition;
+
+        }
+
+    }
+
+
+    /*
+       Save exactly what user typed.
+       Nothing is automatically corrected.
+    */
+
+    typingBuffer =
+        value;
+
+
+    renderTypingText();
+
+
+    updateLiveTypingStats();
+
+
+    /*
+       Current text finished.
+       Give another sentence.
+    */
+
+    if(
+        typingPosition >=
+        typingCurrentText.length
+    ){
+
+        getNewTypingText();
+
+        input.value =
+            typingBuffer = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* ------------------------------
+   WORD ACCURACY
+------------------------------ */
+
+function checkWordAccuracy(
+    word,
+    text,
+    start
+){
+
+    const target =
+        text
+        .slice(
+            start,
+            start+word.length
+        );
+
+
+    return word === target;
+
+}
+
+
+/* ------------------------------
+   LIVE STATS
+------------------------------ */
+
+function updateLiveTypingStats(){
+
+    const elapsed =
+        Math.max(
+            .1,
+            (
+                performance.now() -
+                typingStartTime
+            )/1000
+        );
+
+
+    const minutes =
+        elapsed/60;
+
+
+    const wpm =
+        Math.round(
+            (
+                typingCorrectChars/5
+            )/
+            minutes
+        );
+
+
+    const accuracy =
+        typingTotalChars > 0
+        ? Math.round(
+            typingCorrectChars/
+            typingTotalChars*
+            100
+        )
+        : 100;
+
+
+    const wpmEl =
+        document.getElementById(
+            "liveWpm"
+        );
+
+    const accEl =
+        document.getElementById(
+            "liveAccuracy"
+        );
+
+    const wordsEl =
+        document.getElementById(
+            "liveWords"
+        );
+
+    const mistakesEl =
+        document.getElementById(
+            "liveMistakes"
+        );
+
+    const progressEl =
+        document.getElementById(
+            "typingProgress"
+        );
+
+
+    if(wpmEl){
+        wpmEl.textContent =
+            Math.max(0,wpm);
+    }
+
+    if(accEl){
+        accEl.textContent =
+            accuracy+"%";
+    }
+
+    if(wordsEl){
+        wordsEl.textContent =
+            typingTotalWords;
+    }
+
+    if(mistakesEl){
+        mistakesEl.textContent =
+            typingWrongChars;
+    }
+
+    if(progressEl){
+        progressEl.textContent =
+            typingTotalChars+
+            " characters";
+    }
+
+}
+
+
+/* ------------------------------
+   FINISH TYPING
+------------------------------ */
+
+function finishTyping(){
+
+    if(!typingRunning){
+        return;
+    }
+
+
+    typingRunning = false;
+
+    clearAllTimers();
+
+
+    const elapsed =
+        Math.max(
+            .1,
+            (
+                performance.now() -
+                typingStartTime
+            )/1000
+        );
+
+
+    /*
+       Count the currently typed unfinished
+       word as a word attempt if it exists.
+    */
+
+    const unfinished =
+        typingWordBuffer.trim();
+
+
+    if(
+        unfinished.length > 0
+    ){
+
+        typingTotalWords++;
+
+        const target =
+            typingCurrentText.slice(
+                typingWordStartPosition,
+                typingPosition
+            );
+
+
+        if(
+            unfinished === target &&
+            unfinished.length > 0
+        ){
+
+            typingCorrectWords++;
+
+            typingWordHistory.push({
+                word:unfinished,
+                correct:true
+            });
+
+        }
+        else{
+
+            typingWrongWords++;
+
+            typingWrongWordsList.push(
+                unfinished
+            );
+
+            typingWordHistory.push({
+                word:unfinished,
+                correct:false
+            });
+
+        }
+
+    }
+
+
+    const minutes =
+        elapsed/60;
+
+
+    const wpm =
+        Math.round(
+            (
+                typingCorrectChars/5
+            )/minutes
+        );
+
+
+    const accuracy =
+        typingTotalChars > 0
+        ? Math.round(
+            typingCorrectChars/
+            typingTotalChars*
+            100
+        )
+        : 100;
+
+
+    const correctWordPercent =
+        typingTotalWords > 0
+        ? Math.round(
+            typingCorrectWords/
+            typingTotalWords*
+            100
+        )
+        : 100;
+
+
+    const xp =
+        Math.max(
+            10,
+            Math.min(
+                50,
+                Math.round(
+                    wpm*
+                    accuracy/
+                    100
+                )
+            )
+        );
+
+
+    state.typingHistory.push({
+
+        date:
+            new Date()
+            .toLocaleDateString(),
+
+        duration:
+            typingDuration,
+
+        wpm:wpm,
+
+        accuracy:accuracy,
+
+        correctChars:
+            typingCorrectChars,
+
+        wrongChars:
+            typingWrongChars,
+
+        totalWords:
+            typingTotalWords,
+
+        correctWords:
+            typingCorrectWords,
+
+        wrongWords:
+            typingWrongWords
+
+    });
+
+
+    if(
+        state.typingHistory.length > 20
+    ){
+
+        state.typingHistory =
+            state.typingHistory.slice(-20);
+
+    }
+
+
+    addXP(xp);
+
+
+    renderTypingResult(
+        wpm,
+        accuracy,
+        correctWordPercent,
+        elapsed
+    );
+
+}
+
+
+/* =====================================================
+   TYPING RESULT
+===================================================== */
+
+function renderTypingResult(
+    wpm,
+    accuracy,
+    correctWordPercent,
+    elapsed
+){
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+
+                <h2>Typing Complete</h2>
+
+                <p>
+                    ${formatTime(Math.round(elapsed))}
+                    test • Detailed analysis
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary">
+
+            <div class="metric">
+
+                <small>WPM</small>
+
+                <b>
+                    ${wpm}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>ACCURACY</small>
+
+                <b>
+                    ${accuracy}%
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>RIGHT CHARS</small>
+
+                <b class="good">
+                    ${typingCorrectChars}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>WRONG CHARS</small>
+
+                <b class="bad">
+                    ${typingWrongChars}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>TOTAL WORDS</small>
+
+                <b>
+                    ${typingTotalWords}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>RIGHT WORDS</small>
+
+                <b class="good">
+                    ${typingCorrectWords}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>WRONG WORDS</small>
+
+                <b class="bad">
+                    ${typingWrongWords}
+                </b>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>WORD ACCURACY</small>
+
+                <b>
+                    ${correctWordPercent}%
+                </b>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-box">
+
+            <strong>
+                WPM History
+            </strong>
+
+            <canvas id="typingChart"></canvas>
+
+        </div>
+
+
+        <h3>Wrong Words</h3>
+
+
+        <div class="word-list">
+
+            ${
+                typingWrongWordsList.length
+                ?
+                typingWrongWordsList.map(
+                    function(word){
+
+                        return `
+                        <span class="word-bad">
+                            ${escapeHTML(word)}
+                        </span>
+                        `;
+
+                    }
+                ).join("")
+                :
+                `<span class="good">
+                    No wrong words 🎯
+                </span>`
+            }
+
+        </div>
+
+
+        <h3>What to improve</h3>
+
+
+        <div class="analysis-list">
+
+            ${getTypingTips(
+                wpm,
+                accuracy,
+                typingWrongWords
+            )}
+
+        </div>
+
+
+        <button
+            class="primary"
+            id="typingAgain"
+        >
+            Try Again →
+        </button>
+
+    </div>
+
+    `;
+
+
+    drawChart(
+        document.getElementById(
+            "typingChart"
+        ),
+        state.typingHistory.map(
+            function(item){
+                return item.wpm;
+            }
+        )
+    );
+
+
+    document
+    .getElementById(
+        "typingAgain"
+    )
+    .onclick =
+    typingIntro;
+
+}
+
+
+/* ------------------------------
+   TYPING TIPS
+------------------------------ */
+
+function getTypingTips(
+    wpm,
+    accuracy,
+    wrongWords
+){
+
+    const tips = [];
+
+
+    if(accuracy < 90){
+
+        tips.push(`
+            <div class="analysis">
+                🎯 <b>Accuracy first:</b>
+                You made quite a few character mistakes.
+                Slow down slightly and focus on the target text.
+            </div>
+        `);
+
+    }
+    else if(accuracy < 97){
+
+        tips.push(`
+            <div class="analysis">
+                🎯 <b>Almost there:</b>
+                Your accuracy is decent, but reducing small mistakes
+                will make your speed more useful.
+            </div>
+        `);
+
+    }
+    else{
+
+        tips.push(`
+            <div class="analysis">
+                🎯 <b>Accuracy:</b>
+                Your character accuracy is strong.
+                You can now focus more on speed.
+            </div>
+        `);
+
+    }
+
+
+    if(wpm < 25){
+
+        tips.push(`
+            <div class="analysis">
+                ⚡ <b>Speed:</b>
+                Practice common words and keep your fingers moving
+                instead of stopping after every word.
+            </div>
+        `);
+
+    }
+    else if(wpm < 45){
+
+        tips.push(`
+            <div class="analysis">
+                ⚡ <b>Speed:</b>
+                Your speed is developing. Consistent practice should
+                help you increase it without sacrificing accuracy.
+            </div>
+        `);
+
+    }
+    else{
+
+        tips.push(`
+            <div class="analysis">
+                ⚡ <b>Speed:</b>
+                Your WPM is solid. Focus on maintaining accuracy
+                while pushing speed gradually.
+            </div>
+        `);
+
+    }
+
+
+    if(wrongWords > 0){
+
+        tips.push(`
+            <div class="analysis">
+                📝 <b>Words:</b>
+                ${wrongWords} word(s) contained mistakes.
+                Pay attention to the transition between words.
+            </div>
+        `);
+
+    }
+    else{
+
+        tips.push(`
+            <div class="analysis">
+                📝 <b>Words:</b>
+                No completely wrong words were recorded.
+            </div>
+        `);
+
+    }
+
+
+    return tips.join("");
+
+}
+
+
+/* =====================================================
+   CHART
+===================================================== */
+
+function drawChart(
+    canvas,
+    values
+){
+
+    if(
+        !canvas ||
+        !values ||
+        values.length === 0
+    ){
+        return;
+    }
+
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+
+    const ratio =
+        window.devicePixelRatio || 1;
+
+
+    canvas.width =
+        rect.width*ratio;
+
+    canvas.height =
+        rect.height*ratio;
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    ctx.scale(
+        ratio,
+        ratio
+    );
+
+
+    const width =
+        rect.width;
+
+    const height =
+        rect.height;
+
+    const pad = 25;
+
+
+    const max =
+        Math.max(
+            1,
+            ...values
+        );
+
+
+    const min =
+        Math.min(
+            0,
+            ...values
+        );
+
+
+    ctx.strokeStyle =
+        "#e7ebf1";
+
+    ctx.lineWidth = 1;
+
+
+    for(
+        let i=0;
+        i<4;
+        i++
+    ){
+
+        const y =
+            pad +
+            i*
+            (
+                (height-pad*2)/3
+            );
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            pad,
+            y
+        );
+
+        ctx.lineTo(
+            width-pad,
+            y
+        );
+
+        ctx.stroke();
+
+    }
+
+
+    ctx.strokeStyle =
+        "#377dff";
+
+    ctx.lineWidth = 2.5;
+
+    ctx.beginPath();
+
+
+    values.forEach(
+        function(value,index){
+
+            const x =
+                values.length === 1
+                ? width/2
+                :
+                pad +
+                index*
+                (
+                    (width-pad*2)/
+                    (values.length-1)
+                );
+
+
+            const normalized =
+                (
+                    value-min
+                )/
+                Math.max(
+                    1,
+                    max-min
+                );
+
+
+            const y =
+                height-pad-
+                normalized*
+                (height-pad*2);
+
+
+            if(index === 0){
+
+                ctx.moveTo(
+                    x,
+                    y
+                );
+
+            }
+            else{
+
+                ctx.lineTo(
+                    x,
+                    y
+                );
+
+            }
+
+        }
+    );
+
+
+    ctx.stroke();
+
+
+    values.forEach(
+        function(value,index){
+
+            const x =
+                values.length === 1
+                ? width/2
+                :
+                pad +
+                index*
+                (
+                    (width-pad*2)/
+                    (values.length-1)
+                );
+
+
+            const normalized =
+                (
+                    value-min
+                )/
+                Math.max(
+                    1,
+                    max-min
+                );
+
+
+            const y =
+                height-pad-
+                normalized*
+                (height-pad*2);
+
+
+            ctx.fillStyle =
+                "#377dff";
+
+            ctx.beginPath();
+
+            ctx.arc(
+                x,
+                y,
+                3,
+                0,
+                Math.PI*2
+            );
+
+            ctx.fill();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   NUMBER PUZZLE
+===================================================== */
+
+let numberTarget = 0;
+let numberNumbers = [];
+let numberAttempts = 0;
+
+
+function numberIntro(){
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+                <h2>Number Puzzle</h2>
+                <p>Use arithmetic to reach the target.</p>
+            </div>
+
+        </div>
+
+
+        <div class="target">
+
+            <small>TARGET</small>
+
+            <strong id="numberTarget">?</strong>
+
+        </div>
+
+
+        <p id="numberNumbers">
+            Press generate to receive your numbers.
+        </p>
+
+
+        <input
+            class="input"
+            id="numberInput"
+            placeholder="Example: 10+5*2"
+        >
+
+
+        <br><br>
+
+
+        <button
+            class="primary"
+            id="numberButton"
+        >
+            Generate Puzzle
+        </button>
+
+
+        <p id="numberMessage"></p>
+
+    </div>
+
+    `;
+
+
+    document.getElementById(
+        "numberButton"
+    ).onclick =
+    generateNumberPuzzle;
+
+}
+
+
+function generateNumberPuzzle(){
+
+    numberTarget =
+        random(20,100);
+
+    numberNumbers = [
+
+        random(2,20),
+        random(2,20),
+        random(2,20)
+
+    ];
+
+    numberAttempts = 0;
+
+
+    document.getElementById(
+        "numberTarget"
+    ).textContent =
+        numberTarget;
+
+
+    document.getElementById(
+        "numberNumbers"
+    ).innerHTML =
+        "Numbers: <b>"+
+        numberNumbers.join(" • ")+
+        "</b>";
+
+
+    document.getElementById(
+        "numberInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "numberInput"
+    ).focus();
+
+
+    const button =
+        document.getElementById(
+            "numberButton"
+        );
+
+
+    button.textContent =
+        "Check Answer";
+
+
+    button.onclick =
+        checkNumber;
+
+}
+
+
+function checkNumber(){
+
+    const expression =
+        document.getElementById(
+            "numberInput"
+        ).value.trim();
+
+
+    const message =
+        document.getElementById(
+            "numberMessage"
+        );
+
+
+    if(!expression){
+
+        message.innerHTML =
+            '<span class="bad">Enter an expression.</span>';
+
+        return;
+
+    }
+
+
+    if(
+        !/^[0-9+\-*/().\s]+$/.test(
+            expression
+        )
+    ){
+
+        message.innerHTML =
+            '<span class="bad">Only numbers and + - * / are allowed.</span>';
+
+        return;
+
+    }
+
+
+    let result;
+
+
+    try{
+
+        result =
+            Function(
+                '"use strict";return('+
+                expression+
+                ')'
+            )();
+
+    }
+    catch(error){
+
+        message.innerHTML =
+            '<span class="bad">Invalid expression.</span>';
+
+        return;
+
+    }
+
+
+    if(!Number.isFinite(result)){
+
+        message.innerHTML =
+            '<span class="bad">Invalid calculation.</span>';
+
+        return;
+
+    }
+
+
+    numberAttempts++;
+
+
+    if(
+        Math.abs(
+            result-numberTarget
+        ) < .000001
+    ){
+
+        message.innerHTML =
+        `<span class="good">
+            ✓ Correct in ${numberAttempts} attempt(s)!
+        </span>`;
+
+
+        addXP(
+            Math.max(
+                8,
+                25-numberAttempts*3
+            )
+        );
+
+
+        const button =
+            document.getElementById(
+                "numberButton"
+            );
+
+
+        button.textContent =
+            "New Puzzle";
+
+
+        button.onclick =
+            generateNumberPuzzle;
+
+    }
+    else{
+
+        message.innerHTML =
+        `<span class="bad">
+            ✕ Result = ${result}. Try again.
+        </span>`;
+
+    }
+
+}
+
+
+/* =====================================================
+   MEMORY
+===================================================== */
+
+let memoryLength = 3;
+let memorySequence = "";
+
+
+function memoryIntro(){
+
+    memoryLength = 3;
+
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+                <h2>Memory Challenge</h2>
+                <p>Remember the number sequence.</p>
+            </div>
+
+        </div>
+
+
+        <div
+            class="memory-number"
+            id="memoryNumber"
+        >
+            Ready?
+        </div>
+
+
+        <input
+            class="input"
+            id="memoryInput"
+            placeholder="Enter sequence"
+            disabled
+        >
+
+
+        <br><br>
+
+
+        <button
+            class="primary"
+            id="memoryButton"
+        >
+            Start Level 3
+        </button>
+
+
+        <p id="memoryMessage"></p>
+
+    </div>
+
+    `;
+
+
+    document.getElementById(
+        "memoryButton"
+    ).onclick =
+        startMemory;
+
+}
+
+
+function startMemory(){
+
+    memorySequence = "";
+
+
+    for(
+        let i=0;
+        i<memoryLength;
+        i++
+    ){
+
+        memorySequence +=
+            random(0,9);
+
+    }
+
+
+    const display =
+        document.getElementById(
+            "memoryNumber"
+        );
+
+    const input =
+        document.getElementById(
+            "memoryInput"
+        );
+
+
+    display.textContent =
+        memorySequence;
+
+    input.value = "";
+
+    input.disabled = true;
+
+
+    makeTimeout(
+        function(){
+
+            display.textContent =
+                "••••••";
+
+            input.disabled = false;
+
+            input.focus();
+
+        },
+        1500+
+        memoryLength*200
+    );
+
+
+    const button =
+        document.getElementById(
+            "memoryButton"
+        );
+
+
+    button.disabled = true;
+
+
+    input.onkeydown =
+        function(event){
+
+            if(
+                event.key === "Enter"
+            ){
+
+                checkMemory();
+
+            }
+
+        };
+
+}
+
+
+function checkMemory(){
+
+    const input =
+        document.getElementById(
+            "memoryInput"
+        );
+
+
+    const message =
+        document.getElementById(
+            "memoryMessage"
+        );
+
+
+    if(
+        input.value.trim() ===
+        memorySequence
+    ){
+
+        message.innerHTML =
+        `<span class="good">
+            ✓ Correct! Memory level increased.
+        </span>`;
+
+
+        memoryLength++;
+
+        addXP(15);
+
+
+        const button =
+            document.getElementById(
+                "memoryButton"
+            );
+
+
+        button.disabled = false;
+
+        button.textContent =
+            "Next Level "+memoryLength;
+
+        button.onclick =
+            startMemory;
+
+    }
+    else{
+
+        message.innerHTML =
+        `<span class="bad">
+            ✕ Wrong. Sequence was ${memorySequence}.
+        </span>`;
+
+
+        const button =
+            document.getElementById(
+                "memoryButton"
+            );
+
+
+        button.disabled = false;
+
+        button.textContent =
+            "Try Again";
+
+        button.onclick =
+            startMemory;
+
+    }
+
+}
+
+
+/* =====================================================
+   SEQUENCE PUZZLE
+===================================================== */
+
+let sequenceAnswer = 0;
+
+
+function sequenceIntro(){
+
+    game.innerHTML = `
+
+    <div class="panel">
+
+        <div class="panel-head">
+
+            <div>
+                <h2>Sequence Puzzle</h2>
+                <p>Find the missing number.</p>
+            </div>
+
+        </div>
+
+
+        <div
+            class="sequence"
+            id="sequenceDisplay"
+        >
+            ?
+        </div>
+
+
+        <input
+            class="input"
+            id="sequenceInput"
+            type="number"
+            placeholder="Missing number"
+        >
+
+
+        <br><br>
+
+
+        <button
+            class="primary"
+            id="sequenceButton"
+        >
+            Generate Sequence
+        </button>
+
+
+        <p id="sequenceMessage"></p>
+
+    </div>
+
+    `;
+
+
+    document.getElementById(
+        "sequenceButton"
+    ).onclick =
+        generateSequence;
+
+}
+
+
+function generateSequence(){
+
+    const start =
+        random(2,15);
+
+    const difference =
+        random(2,10);
+
+    const values = [];
+
+
+    for(
+        let i=0;
+        i<6;
+        i++
+    ){
+
+        values.push(
+            start+
+            difference*i
+        );
+
+    }
+
+
+    const missingIndex =
+        random(1,4);
+
+
+    sequenceAnswer =
+        values[missingIndex];
+
+
+    values[missingIndex] = "?";
+
+
+    document.getElementById(
+        "sequenceDisplay"
+    ).textContent =
+        values.join("   ");
+
+
+    document.getElementById(
+        "sequenceInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "sequenceMessage"
+    ).textContent = "";
+
+
+    const button =
+        document.getElementById(
+            "sequenceButton"
+        );
+
+
+    button.textContent =
+        "Check Answer";
+
+
+    button.onclick =
+        checkSequence;
+
+}
+
+
+function checkSequence(){
+
+    const value =
+        Number(
+            document.getElementById(
+                "sequenceInput"
+            ).value
+        );
+
+
+    const message =
+        document.getElementById(
+            "sequenceMessage"
+        );
+
+
+    if(
+        value === sequenceAnswer
+    ){
+
+        message.innerHTML =
+            '<span class="good">✓ Correct!</span>';
+
+
+        addXP(15);
+
+
+        const button =
+            document.getElementById(
+                "sequenceButton"
+            );
+
+
+        button.textContent =
+            "New Sequence";
+
+
+        button.onclick =
+            generateSequence;
+
+    }
+    else{
+
+        message.innerHTML =
+            '<span class="bad">✕ Not correct. Try again.</span>';
+
+    }
+
+}
+
+
+/* =====================================================
+   SAFE HTML
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+console.log(
+    "MindRush loaded successfully."
+);
+
+</script>
+
+</body>
+</html>
