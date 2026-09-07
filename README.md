@@ -2,7 +2,7 @@
 
 MindRush is a browser-based brain training challenge hub designed to improve calculation, typing speed, memory, and logical thinking.
 
-🎮 Challenges
+#🎮 Challenges
 
 - 🧮 Math Quiz — Adaptive difficulty with score and streaks
 - ⌨️ Typing Speed — Custom timer, WPM, accuracy and mistake tracking
@@ -10,7 +10,7 @@ MindRush is a browser-based brain training challenge hub designed to improve cal
 - ◉ Memory Challenge — Remember increasingly longer number sequences
 - ◆ Sequence Puzzle — Find the missing number in a pattern
 
-✨ Features
+#✨ Features
 
 - Clean and responsive interface
 - Mobile-friendly design
@@ -20,7 +20,7 @@ MindRush is a browser-based brain training challenge hub designed to improve cal
 - WPM and accuracy analysis
 - No backend required
 
-🛠️ Built With
+#🛠️ Built With
 
 - HTML
 - CSS
@@ -28,7 +28,7 @@ MindRush is a browser-based brain training challenge hub designed to improve cal
 - Browser LocalStorage
 - HTML Canvas
 
-🚀 Run Locally
+#🚀 Run Locally
 
 Download or clone the repository and open:
 
@@ -36,10 +36,7 @@ index.html
 
 in any modern web browser.
 
-🌐 GitHub Pages
 
-MindRush can be hosted using GitHub Pages because it is a client-side web application.
+#📄 License
 
-📄 License
-
-This project is available for personal and educational use.
+This project is available for educational use.
