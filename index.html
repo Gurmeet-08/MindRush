@@ -19,20 +19,23 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 
 .app{
+    width:100%;
     max-width:1100px;
     margin:auto;
     padding:18px;
 }
 
+/* HEADER */
+
 .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .logo{
-    font-size:25px;
+    font-size:26px;
     font-weight:800;
 }
 
@@ -44,15 +47,17 @@ button{cursor:pointer}
 }
 
 .stat{
-    background:#fff;
+    background:white;
     border:1px solid #e4e7ee;
+    padding:9px 13px;
     border-radius:12px;
-    padding:9px 12px;
     font-size:13px;
 }
 
+/* HOME */
+
 .hero{
-    background:#fff;
+    background:white;
     border:1px solid #e4e7ee;
     border-radius:22px;
     padding:28px;
@@ -71,6 +76,7 @@ button{cursor:pointer}
 }
 
 .title{margin-bottom:14px}
+
 .title h2{margin:0}
 
 .grid{
@@ -80,7 +86,7 @@ button{cursor:pointer}
 }
 
 .card{
-    background:#fff;
+    background:white;
     border:1px solid #e4e7ee;
     border-radius:18px;
     padding:20px;
@@ -98,8 +104,8 @@ button{cursor:pointer}
     border-radius:14px;
     background:#f0f1ff;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-size:24px;
     margin-bottom:14px;
 }
@@ -113,26 +119,32 @@ button{cursor:pointer}
     min-height:40px;
 }
 
+/* BUTTONS */
+
 .primary{
     border:0;
     background:#5b5ce2;
-    color:#fff;
-    padding:11px 16px;
+    color:white;
+    padding:11px 17px;
     border-radius:11px;
     font-weight:700;
 }
 
+.primary:hover{background:#4c4dca}
+
 .secondary{
     border:1px solid #dfe3eb;
-    background:#fff;
+    background:white;
     padding:10px 15px;
     border-radius:10px;
 }
 
+/* GAME */
+
 .game{display:none}
 
 .panel{
-    background:#fff;
+    background:white;
     border:1px solid #e4e7ee;
     border-radius:22px;
     padding:24px;
@@ -154,25 +166,7 @@ button{cursor:pointer}
     font-size:13px;
 }
 
-.input{
-    width:100%;
-    border:1px solid #dce1e9;
-    border-radius:11px;
-    padding:13px;
-    outline:none;
-    background:#fff;
-}
-
-.input:focus{border-color:#5b5ce2}
-
-.select{
-    width:100%;
-    padding:12px;
-    border:1px solid #dce1e9;
-    border-radius:11px;
-    background:#fff;
-    outline:none;
-}
+/* SETTINGS */
 
 .settings{
     display:grid;
@@ -192,8 +186,21 @@ button{cursor:pointer}
     display:block;
     font-size:12px;
     color:#777e8c;
-    margin-bottom:7px;
+    margin-bottom:8px;
     font-weight:700;
+}
+
+.select,.input{
+    width:100%;
+    border:1px solid #dce1e9;
+    border-radius:11px;
+    padding:12px;
+    outline:none;
+    background:white;
+}
+
+.select:focus,.input:focus{
+    border-color:#5b5ce2;
 }
 
 /* MEMORY */
@@ -201,8 +208,8 @@ button{cursor:pointer}
 .memory-number{
     height:190px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     background:#f8f9fc;
     border:1px dashed #dce1ea;
     border-radius:20px;
@@ -219,23 +226,13 @@ button{cursor:pointer}
     margin-bottom:14px;
 }
 
-.good{
-    color:#24945a;
-    font-weight:700;
-}
-
-.bad{
-    color:#d94343;
-    font-weight:700;
-}
-
 /* MATH */
 
 .math-top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .level{
@@ -249,7 +246,7 @@ button{cursor:pointer}
 
 .timer{
     text-align:center;
-    font-size:27px;
+    font-size:28px;
     font-weight:800;
     margin:10px;
 }
@@ -269,7 +266,7 @@ button{cursor:pointer}
 
 .option{
     border:1px solid #dfe3eb;
-    background:#fff;
+    background:white;
     border-radius:13px;
     padding:15px;
     font-weight:700;
@@ -296,14 +293,14 @@ button{cursor:pointer}
 
 .time-btn{
     border:1px solid #dfe3eb;
-    background:#fff;
+    background:white;
     padding:9px 13px;
     border-radius:9px;
 }
 
 .time-btn.active{
     background:#5b5ce2;
-    color:#fff;
+    color:white;
     border-color:#5b5ce2;
 }
 
@@ -313,8 +310,6 @@ button{cursor:pointer}
     margin-top:10px;
 }
 
-.custom-row input{max-width:180px}
-
 .typing-box{
     background:#fafbfc;
     border:1px solid #e1e5ec;
@@ -322,21 +317,40 @@ button{cursor:pointer}
     padding:20px;
 }
 
-.typing-text{
-    font-size:22px;
-    line-height:1.7;
-    min-height:100px;
-    margin-bottom:15px;
+/* REFERENCE TEXT */
+
+.reference-label{
+    font-size:12px;
+    font-weight:700;
+    color:#777e8c;
+    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-.correct{color:#26945c}
+.typing-text{
+    background:white;
+    border:1px solid #e1e5ec;
+    border-radius:12px;
+    padding:15px;
+    font-size:21px;
+    line-height:1.8;
+    min-height:110px;
+    margin-bottom:15px;
+    word-break:break-word;
+}
+
+.correct{color:#24945a}
 
 .wrong{
-    color:#dc4444;
+    color:#d94343;
     text-decoration:underline;
 }
 
-.current{background:#e7e8ff}
+.current{
+    background:#e7e8ff;
+    border-radius:2px;
+}
 
 /* RESULTS */
 
@@ -375,7 +389,7 @@ button{cursor:pointer}
 
 .bar{
     flex:1;
-    min-width:22px;
+    min-width:24px;
     background:#7778e8;
     border-radius:7px 7px 2px 2px;
     position:relative;
@@ -390,10 +404,21 @@ button{cursor:pointer}
     color:#777;
 }
 
+.good{
+    color:#24945a;
+    font-weight:700;
+}
+
+.bad{
+    color:#d94343;
+    font-weight:700;
+}
+
 .result-actions{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .footer{
@@ -427,8 +452,6 @@ button{cursor:pointer}
     .typing-text{font-size:18px}
 
     .custom-row{flex-direction:column}
-
-    .custom-row input{max-width:none}
 }
 </style>
 </head>
@@ -439,21 +462,21 @@ button{cursor:pointer}
 
 <header class="header">
 
-    <div class="logo">
-        Mind<span>Forge</span>
-    </div>
+<div class="logo">
+Mind<span>Forge</span>
+</div>
 
-    <div class="stats">
+<div class="stats">
 
-        <div class="stat">
-            ⭐ XP: <b id="xp">0</b>
-        </div>
+<div class="stat">
+⭐ XP: <b id="xp">0</b>
+</div>
 
-        <div class="stat">
-            🔥 Streak: <b id="streak">0</b>
-        </div>
+<div class="stat">
+🔥 Streak: <b id="streak">0</b>
+</div>
 
-    </div>
+</div>
 
 </header>
 
@@ -462,116 +485,99 @@ button{cursor:pointer}
 
 <section id="home">
 
-    <div class="hero">
+<div class="hero">
 
-        <h1>Train your brain.</h1>
+<h1>Train your brain.</h1>
 
-        <p>
-            Memory, mathematics, typing and
-            logical thinking challenges.
-        </p>
+<p>
+Memory, mathematics, typing and
+logical thinking challenges.
+</p>
 
-    </div>
+</div>
 
-    <div class="title">
-        <h2>Challenges</h2>
-    </div>
+<div class="title">
+<h2>Challenges</h2>
+</div>
 
-    <div class="grid">
+<div class="grid">
 
-        <div class="card">
+<div class="card">
 
-            <div class="icon">🧠</div>
+<div class="icon">🧠</div>
 
-            <h3>Memory Challenge</h3>
+<h3>Memory Challenge</h3>
 
-            <p>
-                Remember numbers appearing
-                one by one.
-            </p>
+<p>
+Remember numbers appearing one by one.
+</p>
 
-            <button
-                class="primary"
-                onclick="openMemory()"
-            >
-                Start
-            </button>
+<button class="primary" onclick="openMemory()">
+Start
+</button>
 
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="icon">🧮</div>
+<div class="icon">🧮</div>
 
-            <h3>Math Quiz</h3>
+<h3>Math Quiz</h3>
 
-            <p>
-                Choose your difficulty and
-                solve calculations.
-            </p>
+<p>
+Test calculation speed and accuracy.
+</p>
 
-            <button
-                class="primary"
-                onclick="openMathSetup()"
-            >
-                Start
-            </button>
+<button class="primary" onclick="openMathSetup()">
+Start
+</button>
 
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="icon">⌨️</div>
+<div class="icon">⌨️</div>
 
-            <h3>Typing Speed</h3>
+<h3>Typing Speed</h3>
 
-            <p>
-                Choose your own time limit and
-                test speed and accuracy.
-            </p>
+<p>
+Choose your own time and test your speed.
+</p>
 
-            <button
-                class="primary"
-                onclick="openTypingSetup()"
-            >
-                Start
-            </button>
+<button class="primary" onclick="openTypingSetup()">
+Start
+</button>
 
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="icon">🧩</div>
+<div class="icon">🧩</div>
 
-            <h3>Number Puzzle</h3>
+<h3>Number Puzzle</h3>
 
-            <p>
-                Solve a new number sequence
-                every time.
-            </p>
+<p>
+Find the missing number in sequences.
+</p>
 
-            <button
-                class="primary"
-                onclick="openPuzzle()"
-            >
-                Start
-            </button>
+<button class="primary" onclick="openPuzzle()">
+Start
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 <section id="game" class="game"></section>
 
-
 <div class="footer">
-    MindForge • Brain Training
+MindForge • Brain Training
 </div>
 
 </div>
@@ -580,69 +586,77 @@ button{cursor:pointer}
 <script>
 
 /* =====================================================
-   GLOBAL
+GLOBAL
 ===================================================== */
 
-const home = document.getElementById("home");
-const game = document.getElementById("game");
+const home=document.getElementById("home");
+const game=document.getElementById("game");
 
-let xp = Number(localStorage.getItem("mind_xp") || 0);
-let streak = Number(localStorage.getItem("mind_streak") || 0);
+let xp=Number(localStorage.getItem("mind_xp")||0);
+let streak=Number(localStorage.getItem("mind_streak")||0);
+
+let mathTimer=null;
+let typingTimer=null;
 
 function updateStats(){
 
-    document.getElementById("xp").textContent = xp;
-    document.getElementById("streak").textContent = streak;
+document.getElementById("xp").textContent=xp;
+document.getElementById("streak").textContent=streak;
 
 }
 
 function addXP(amount){
 
-    xp += amount;
+xp+=amount;
 
-    localStorage.setItem(
-        "mind_xp",
-        xp
-    );
+localStorage.setItem("mind_xp",xp);
 
-    updateStats();
+updateStats();
+
+}
+
+function saveStreak(){
+
+localStorage.setItem("mind_streak",streak);
+
+updateStats();
 
 }
 
 function showGame(html){
 
-    home.style.display = "none";
-    game.style.display = "block";
-    game.innerHTML = html;
+home.style.display="none";
+game.style.display="block";
+game.innerHTML=html;
 
 }
 
 function backHome(){
 
-    clearInterval(mathTimer);
-    clearInterval(typingTimer);
+clearInterval(mathTimer);
+clearInterval(typingTimer);
 
-    game.style.display = "none";
-    home.style.display = "block";
+game.style.display="none";
+home.style.display="block";
 
 }
 
 function random(min,max){
 
-    return Math.floor(
-        Math.random() * (max-min+1)
-    ) + min;
+return Math.floor(
+Math.random()*(max-min+1)
+)+min;
 
 }
 
 function escapeHTML(text){
 
-    return String(text)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
@@ -650,2045 +664,1739 @@ updateStats();
 
 
 /* =====================================================
-   MEMORY CHALLENGE
+MEMORY CHALLENGE
 ===================================================== */
 
-let memoryLength = 5;
-let memorySequence = [];
-let memoryIndex = 0;
-let memoryShowing = false;
-let memoryBusy = false;
+let memoryLength=5;
+let memorySequence=[];
+let memoryIndex=0;
+let memoryShowing=false;
+let memoryBusy=false;
 
 function openMemory(){
 
-    memoryLength = 5;
-    startMemory();
+memoryLength=5;
+startMemory();
 
 }
 
 function startMemory(){
 
-    memorySequence = [];
-    memoryIndex = 0;
-    memoryShowing = true;
-    memoryBusy = false;
+clearInterval(mathTimer);
+clearInterval(typingTimer);
 
-    for(
-        let i=0;
-        i<memoryLength;
-        i++
-    ){
+memorySequence=[];
+memoryIndex=0;
+memoryShowing=true;
+memoryBusy=false;
 
-        memorySequence.push(
-            random(0,9)
-        );
+for(let i=0;i<memoryLength;i++){
 
-    }
+memorySequence.push(random(0,9));
 
-    showGame(`
+}
 
-        <div class="panel">
+showGame(`
 
-            <div class="panel-head">
+<div class="panel">
 
-                <div>
-                    <h2>🧠 Memory Challenge</h2>
-                    <p>Remember the numbers in order.</p>
-                </div>
+<div class="panel-head">
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
+<div>
 
-            </div>
+<h2>🧠 Memory Challenge</h2>
 
-            <div
-                id="memoryNumber"
-                class="memory-number"
-            >
-                Get Ready...
-            </div>
+<p>
+Remember all ${memoryLength} numbers in order.
+</p>
 
-            <div
-                id="memoryStatus"
-                class="memory-status"
-            >
-                Watch carefully.
-            </div>
+</div>
 
-            <input
-                id="memoryInput"
-                class="input"
-                inputmode="numeric"
-                autocomplete="off"
-                maxlength="${memoryLength}"
-                placeholder="Type the sequence..."
-                disabled
-            >
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-            <p
-                id="memoryMessage"
-                style="text-align:center;line-height:1.7"
-            ></p>
+</div>
 
-        </div>
+<div id="memoryNumber" class="memory-number">
+Get Ready...
+</div>
 
-    `);
+<div id="memoryStatus" class="memory-status">
+Watch carefully.
+</div>
 
-    setTimeout(
-        showMemoryNumber,
-        900
-    );
+<input
+id="memoryInput"
+class="input"
+inputmode="numeric"
+autocomplete="off"
+maxlength="${memoryLength}"
+placeholder="Type the sequence..."
+disabled
+>
+
+<p id="memoryMessage"
+style="text-align:center;line-height:1.7">
+</p>
+
+</div>
+
+`);
+
+setTimeout(showMemoryNumber,900);
 
 }
 
 function showMemoryNumber(){
 
-    if(!memoryShowing) return;
+if(!memoryShowing)return;
 
-    if(
-        memoryIndex >=
-        memorySequence.length
-    ){
+if(memoryIndex>=memorySequence.length){
 
-        finishMemory();
-        return;
+finishMemory();
+return;
 
-    }
+}
 
-    const number =
-        document.getElementById(
-            "memoryNumber"
-        );
+const number=document.getElementById("memoryNumber");
+const status=document.getElementById("memoryStatus");
 
-    const status =
-        document.getElementById(
-            "memoryStatus"
-        );
+number.textContent=memorySequence[memoryIndex];
 
-    number.textContent =
-        memorySequence[memoryIndex];
+status.textContent=
+"Number "+(memoryIndex+1)+" / "+memoryLength;
 
-    status.textContent =
-        "Number " +
-        (memoryIndex+1) +
-        " / " +
-        memoryLength;
+setTimeout(function(){
 
-    setTimeout(
-        function(){
+number.textContent="•";
 
-            number.textContent = "•";
+memoryIndex++;
 
-            memoryIndex++;
+setTimeout(showMemoryNumber,250);
 
-            setTimeout(
-                showMemoryNumber,
-                250
-            );
-
-        },
-        850
-    );
+},850);
 
 }
 
 function finishMemory(){
 
-    memoryShowing = false;
+memoryShowing=false;
 
-    const number =
-        document.getElementById(
-            "memoryNumber"
-        );
+const number=document.getElementById("memoryNumber");
+const status=document.getElementById("memoryStatus");
+const input=document.getElementById("memoryInput");
 
-    const status =
-        document.getElementById(
-            "memoryStatus"
-        );
+number.textContent="•••••";
 
-    const input =
-        document.getElementById(
-            "memoryInput"
-        );
+status.textContent="Type the complete sequence.";
 
-    number.textContent = "•••••";
+input.disabled=false;
 
-    status.textContent =
-        "Type the sequence now.";
+input.focus();
 
-    input.disabled = false;
-
-    input.focus();
-
-    input.addEventListener(
-        "input",
-        autoCheckMemory
-    );
+input.addEventListener("input",autoCheckMemory);
 
 }
 
 function autoCheckMemory(){
 
-    if(
-        memoryShowing ||
-        memoryBusy
-    ){
-        return;
-    }
+if(memoryShowing||memoryBusy)return;
 
-    const input =
-        document.getElementById(
-            "memoryInput"
-        );
+const input=document.getElementById("memoryInput");
 
-    input.value =
-        input.value.replace(
-            /[^0-9]/g,
-            ""
-        );
+input.value=input.value.replace(/[^0-9]/g,"");
 
-    if(
-        input.value.length <
-        memoryLength
-    ){
-        return;
-    }
+if(input.value.length<memoryLength)return;
 
-    memoryBusy = true;
-    input.disabled = true;
+memoryBusy=true;
+input.disabled=true;
 
-    const userAnswer =
-        input.value;
+const userAnswer=input.value;
+const correctAnswer=memorySequence.join("");
 
-    const correctAnswer =
-        memorySequence.join("");
+const message=document.getElementById("memoryMessage");
 
-    const message =
-        document.getElementById(
-            "memoryMessage"
-        );
+if(userAnswer===correctAnswer){
 
-    if(
-        userAnswer ===
-        correctAnswer
-    ){
+streak++;
 
-        streak++;
+addXP(15+memoryLength);
+saveStreak();
 
-        addXP(
-            15 + memoryLength
-        );
+message.innerHTML=`
 
-        message.innerHTML = `
+<span class="good">
 
-            <span class="good">
+✓ CORRECT!
 
-                ✓ CORRECT!
+<br>
 
-                <br>
-                Sequence: ${correctAnswer}
+Sequence: ${correctAnswer}
 
-                <br><br>
+<br><br>
 
-                Next level:
-                ${memoryLength+1} numbers
+Next challenge:
+${memoryLength+1} numbers
 
-            </span>
+</span>
 
-        `;
+`;
 
-        memoryLength++;
+memoryLength++;
 
-        localStorage.setItem(
-            "mind_streak",
-            streak
-        );
+setTimeout(startMemory,1200);
 
-        updateStats();
+}else{
 
-        setTimeout(
-            startMemory,
-            1200
-        );
+streak=0;
+saveStreak();
 
-    }
-    else{
+message.innerHTML=`
 
-        streak = 0;
+<span class="bad">
 
-        message.innerHTML = `
+✕ WRONG!
 
-            <span class="bad">
+<br>
 
-                ✕ WRONG!
+Your answer: ${userAnswer}
 
-                <br>
-                Your answer: ${userAnswer}
+<br>
 
-                <br>
-                Correct: ${correctAnswer}
+Correct: ${correctAnswer}
 
-                <br><br>
+<br><br>
 
-                Same level again...
+Try the same level again.
 
-            </span>
+</span>
 
-        `;
+`;
 
-        localStorage.setItem(
-            "mind_streak",
-            streak
-        );
+setTimeout(startMemory,1800);
 
-        updateStats();
-
-        setTimeout(
-            startMemory,
-            1800
-        );
-
-    }
+}
 
 }
 
 
 /* =====================================================
-   MATH QUIZ
+MATH QUIZ
 ===================================================== */
 
-let mathQuestion = 0;
-let mathTotal = 10;
-let mathCorrect = 0;
-let mathWrong = 0;
-let mathTimes = [];
-let mathStart = 0;
-let mathDifficulty = "easy";
-let mathTimer = null;
-let mathSeconds = 20;
-let currentMathAnswer = null;
-let mathLocked = false;
+let mathQuestion=0;
+let mathTotal=10;
+let mathCorrect=0;
+let mathWrong=0;
+let mathTimes=[];
+let mathStart=0;
+let mathDifficulty="easy";
+let mathSeconds=20;
+let currentMathAnswer=null;
+let mathLocked=false;
 
 function openMathSetup(){
 
-    showGame(`
+showGame(`
 
-        <div class="panel">
+<div class="panel">
 
-            <div class="panel-head">
+<div class="panel-head">
 
-                <div>
-                    <h2>🧮 Math Quiz</h2>
-                    <p>Choose your difficulty and questions.</p>
-                </div>
+<div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
+<h2>🧮 Math Quiz</h2>
 
-            </div>
+<p>
+Select difficulty and number of questions.
+</p>
 
-            <div class="settings">
+</div>
 
-                <div class="setting">
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-                    <label>DIFFICULTY</label>
+</div>
 
-                    <select
-                        id="mathDifficulty"
-                        class="select"
-                    >
+<div class="settings">
 
-                        <option value="easy">
-                            Easy
-                        </option>
+<div class="setting">
 
-                        <option value="medium">
-                            Medium
-                        </option>
+<label>DIFFICULTY</label>
 
-                        <option value="hard">
-                            Hard
-                        </option>
+<select id="mathDifficulty" class="select">
 
-                    </select>
+<option value="easy">Easy</option>
+<option value="medium">Medium</option>
+<option value="hard">Hard</option>
 
-                </div>
+</select>
 
-                <div class="setting">
+</div>
 
-                    <label>QUESTIONS</label>
+<div class="setting">
 
-                    <select
-                        id="mathQuestions"
-                        class="select"
-                    >
+<label>QUESTIONS</label>
 
-                        <option value="5">
-                            5 Questions
-                        </option>
+<select id="mathQuestions" class="select">
 
-                        <option value="10" selected>
-                            10 Questions
-                        </option>
+<option value="5">5 Questions</option>
+<option value="10" selected>10 Questions</option>
+<option value="15">15 Questions</option>
 
-                        <option value="15">
-                            15 Questions
-                        </option>
+</select>
 
-                    </select>
+</div>
 
-                </div>
+</div>
 
-            </div>
+<button class="primary" onclick="startMath()">
+Start Quiz
+</button>
 
-            <button
-                class="primary"
-                onclick="startMath()"
-            >
-                Start Quiz
-            </button>
+</div>
 
-        </div>
-
-    `);
+`);
 
 }
 
 function startMath(){
 
-    mathQuestion = 0;
-    mathCorrect = 0;
-    mathWrong = 0;
-    mathTimes = [];
-    mathLocked = false;
+mathQuestion=0;
+mathCorrect=0;
+mathWrong=0;
+mathTimes=[];
+mathLocked=false;
 
-    mathDifficulty =
-        document.getElementById(
-            "mathDifficulty"
-        ).value;
+mathDifficulty=
+document.getElementById("mathDifficulty").value;
 
-    mathTotal =
-        Number(
-            document.getElementById(
-                "mathQuestions"
-            ).value
-        );
+mathTotal=
+Number(document.getElementById("mathQuestions").value);
 
-    showMathGame();
+showMathGame();
 
-    nextMath();
+nextMath();
 
 }
 
 function showMathGame(){
 
-    showGame(`
+showGame(`
 
-        <div class="panel">
+<div class="panel">
 
-            <div class="panel-head">
+<div class="panel-head">
 
-                <div>
+<div>
 
-                    <h2>🧮 Math Quiz</h2>
+<h2>🧮 Math Quiz</h2>
 
-                    <p id="mathQuestionNumber">
-                        Question 1/${mathTotal}
-                    </p>
+<p id="mathQuestionNumber">
+Question 1/${mathTotal}
+</p>
 
-                </div>
+</div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-            </div>
+</div>
 
-            <div class="math-top">
+<div class="math-top">
 
-                <div
-                    id="mathLevel"
-                    class="level"
-                >
-                    EASY
-                </div>
+<div id="mathLevel" class="level">
+EASY
+</div>
 
-                <div class="timer">
+<div class="timer">
 
-                    <span id="mathTimer">
-                        20
-                    </span>s
+<span id="mathTimer">20</span>s
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <div id="mathArea"></div>
+<div id="mathArea"></div>
 
-            <div
-                id="mathFeedback"
-                style="
-                    text-align:center;
-                    margin-top:18px;
-                    min-height:70px;
-                    line-height:1.6;
-                    font-weight:700;
-                "
-            ></div>
+<div id="mathFeedback"
+style="
+text-align:center;
+margin-top:18px;
+min-height:85px;
+line-height:1.6;
+font-weight:700;
+">
+</div>
 
-        </div>
+</div>
 
-    `);
+`);
 
 }
 
 function getMathQuestion(){
 
-    let max;
+let max;
 
-    if(
-        mathDifficulty === "easy"
-    ){
+if(mathDifficulty==="easy")max=10;
+else if(mathDifficulty==="medium")max=30;
+else max=100;
 
-        max = 10;
+let a=random(2,max);
+let b=random(2,max);
 
-    }
-    else if(
-        mathDifficulty === "medium"
-    ){
+let operations;
 
-        max = 30;
+if(mathDifficulty==="easy")
+operations=["+","-"];
 
-    }
-    else{
+else if(mathDifficulty==="medium")
+operations=["+","-","×"];
 
-        max = 100;
+else
+operations=["+","-","×","÷"];
 
-    }
+const op=
+operations[random(0,operations.length-1)];
 
-    let a = random(2,max);
-    let b = random(2,max);
+let answer;
 
-    let operations;
+if(op==="+")answer=a+b;
 
-    if(
-        mathDifficulty === "easy"
-    ){
+else if(op==="-")answer=a-b;
 
-        operations = ["+","-"];
+else if(op==="×")answer=a*b;
 
-    }
-    else if(
-        mathDifficulty === "medium"
-    ){
+else{
 
-        operations = ["+","-","×"];
+answer=random(2,12);
+b=random(2,12);
+a=answer*b;
 
-    }
-    else{
+}
 
-        operations = ["+","-","×","÷"];
-
-    }
-
-    const op =
-        operations[
-            random(
-                0,
-                operations.length-1
-            )
-        ];
-
-    let answer;
-
-    if(op === "+"){
-
-        answer = a+b;
-
-    }
-    else if(op === "-"){
-
-        answer = a-b;
-
-    }
-    else if(op === "×"){
-
-        answer = a*b;
-
-    }
-    else{
-
-        answer = random(2,12);
-
-        b = random(2,12);
-
-        a = answer*b;
-
-    }
-
-    return {
-        text:`${a} ${op} ${b}`,
-        answer:answer
-    };
+return{
+text:`${a} ${op} ${b}`,
+answer:answer
+};
 
 }
 
 function nextMath(){
 
-    if(
-        mathQuestion >=
-        mathTotal
-    ){
+if(mathQuestion>=mathTotal){
 
-        clearInterval(mathTimer);
+clearInterval(mathTimer);
+showMathResults();
 
-        showMathResults();
+return;
 
-        return;
+}
 
-    }
+mathLocked=false;
 
-    mathLocked = false;
+const q=getMathQuestion();
 
-    const q =
-        getMathQuestion();
+currentMathAnswer=q.answer;
 
-    currentMathAnswer =
-        q.answer;
+mathStart=Date.now();
 
-    mathStart =
-        Date.now();
+if(mathDifficulty==="easy")mathSeconds=20;
+else if(mathDifficulty==="medium")mathSeconds=25;
+else mathSeconds=30;
 
-    if(
-        mathDifficulty === "easy"
-    ){
+document.getElementById("mathTimer").textContent=mathSeconds;
 
-        mathSeconds = 20;
+document.getElementById("mathQuestionNumber").textContent=
+`Question ${mathQuestion+1}/${mathTotal}`;
 
-    }
-    else if(
-        mathDifficulty === "medium"
-    ){
+document.getElementById("mathLevel").textContent=
+mathDifficulty.toUpperCase();
 
-        mathSeconds = 25;
+document.getElementById("mathFeedback").innerHTML="";
 
-    }
-    else{
+let options=new Set();
 
-        mathSeconds = 30;
+options.add(q.answer);
 
-    }
+while(options.size<4){
 
-    document.getElementById(
-        "mathTimer"
-    ).textContent =
-        mathSeconds;
+let wrong=q.answer+random(-15,15);
 
-    document.getElementById(
-        "mathQuestionNumber"
-    ).textContent =
-        `Question ${mathQuestion+1}/${mathTotal}`;
+if(wrong!==q.answer)options.add(wrong);
 
-    document.getElementById(
-        "mathLevel"
-    ).textContent =
-        mathDifficulty.toUpperCase();
+}
 
-    document.getElementById(
-        "mathFeedback"
-    ).innerHTML = "";
+options=[...options].sort(()=>Math.random()-.5);
 
-    let options = new Set();
+let html=`
 
-    options.add(q.answer);
+<div class="math-question">
+${q.text} = ?
+</div>
 
-    while(
-        options.size < 4
-    ){
+<div class="options">
 
-        let wrong =
-            q.answer +
-            random(-15,15);
+`;
 
-        if(
-            wrong !== q.answer
-        ){
+options.forEach(value=>{
 
-            options.add(wrong);
+html+=`
 
-        }
+<button
+class="option"
+onclick="answerMath(${value})"
+>
+${value}
+</button>
 
-    }
+`;
 
-    options =
-        [...options].sort(
-            () => Math.random()-.5
-        );
+});
 
-    let html = `
+html+=`</div>`;
 
-        <div class="math-question">
-            ${q.text} = ?
-        </div>
+document.getElementById("mathArea").innerHTML=html;
 
-        <div class="options">
+clearInterval(mathTimer);
 
-    `;
+mathTimer=setInterval(function(){
 
-    options.forEach(
-        value => {
+mathSeconds--;
 
-            html += `
+const timer=document.getElementById("mathTimer");
 
-                <button
-                    class="option"
-                    onclick="answerMath(${value})"
-                >
-                    ${value}
-                </button>
+if(timer)timer.textContent=mathSeconds;
 
-            `;
+if(mathSeconds<=0){
 
-        }
-    );
+clearInterval(mathTimer);
+answerMath(null);
 
-    html += `</div>`;
+}
 
-    document.getElementById(
-        "mathArea"
-    ).innerHTML =
-        html;
-
-    clearInterval(mathTimer);
-
-    mathTimer =
-        setInterval(
-            () => {
-
-                mathSeconds--;
-
-                const timer =
-                    document.getElementById(
-                        "mathTimer"
-                    );
-
-                if(timer){
-
-                    timer.textContent =
-                        mathSeconds;
-
-                }
-
-                if(
-                    mathSeconds <= 0
-                ){
-
-                    clearInterval(
-                        mathTimer
-                    );
-
-                    answerMath(null);
-
-                }
-
-            },
-            1000
-        );
+},1000);
 
 }
 
 function answerMath(selected){
 
-    if(mathLocked){
-        return;
-    }
+if(mathLocked)return;
 
-    mathLocked = true;
+mathLocked=true;
 
-    clearInterval(mathTimer);
+clearInterval(mathTimer);
 
-    const time =
-        (
-            Date.now() -
-            mathStart
-        ) / 1000;
+const time=
+(Date.now()-mathStart)/1000;
 
-    mathTimes.push(time);
+mathTimes.push(time);
 
-    const buttons =
-        document.querySelectorAll(
-            ".option"
-        );
+const buttons=document.querySelectorAll(".option");
 
-    buttons.forEach(
-        button => {
+buttons.forEach(button=>button.disabled=true);
 
-            button.disabled = true;
+const feedback=document.getElementById("mathFeedback");
 
-        }
-    );
+if(selected===currentMathAnswer){
 
-    const feedback =
-        document.getElementById(
-            "mathFeedback"
-        );
+mathCorrect++;
 
-    if(
-        selected ===
-        currentMathAnswer
-    ){
+streak++;
 
-        mathCorrect++;
+addXP(10);
+saveStreak();
 
-        streak++;
+feedback.innerHTML=`
 
-        addXP(10);
+<span style="color:#24945a;font-size:20px">
+✓ Correct!
+</span>
 
-        feedback.innerHTML = `
+<br>
 
-            <span
-                style="
-                    color:#24945a;
-                    font-size:20px
-                "
-            >
-                ✓ Correct!
-            </span>
+Answer: ${currentMathAnswer}
 
-            <br>
+<br>
 
-            Answer: ${currentMathAnswer}
+Time: ${time.toFixed(2)}s
 
-            <br>
+`;
 
-            Time: ${time.toFixed(2)}s
+buttons.forEach(button=>{
 
-        `;
+if(
+Number(button.textContent.trim())===
+currentMathAnswer
+){
 
-        buttons.forEach(
-            button => {
+button.style.border="2px solid #24945a";
+button.style.background="#effaf4";
 
-                if(
-                    Number(
-                        button.textContent.trim()
-                    ) === currentMathAnswer
-                ){
+}
 
-                    button.style.border =
-                        "2px solid #24945a";
+});
 
-                    button.style.background =
-                        "#effaf4";
+}else{
 
-                }
+mathWrong++;
 
-            }
-        );
+streak=0;
+saveStreak();
 
-    }
-    else{
+feedback.innerHTML=`
 
-        mathWrong++;
+<span style="color:#d94343;font-size:20px">
+✕ Wrong!
+</span>
 
-        streak = 0;
+<br>
 
-        feedback.innerHTML = `
+Your answer:
+${selected===null?"Time Up":selected}
 
-            <span
-                style="
-                    color:#d94343;
-                    font-size:20px
-                "
-            >
-                ✕ Wrong!
-            </span>
+<br>
 
-            <br>
+Correct answer:
+${currentMathAnswer}
 
-            Your answer:
-            ${
-                selected === null
-                ? "Time Up"
-                : selected
-            }
+<br>
 
-            <br>
+Time: ${time.toFixed(2)}s
 
-            Correct answer:
-            ${currentMathAnswer}
+`;
 
-            <br>
+buttons.forEach(button=>{
 
-            Time: ${time.toFixed(2)}s
+const value=
+Number(button.textContent.trim());
 
-        `;
+if(selected!==null&&value===selected){
 
-        buttons.forEach(
-            button => {
+button.style.border="2px solid #d94343";
+button.style.background="#fff1f1";
 
-                const value =
-                    Number(
-                        button.textContent.trim()
-                    );
+}
 
-                if(
-                    selected !== null &&
-                    value === selected
-                ){
+if(value===currentMathAnswer){
 
-                    button.style.border =
-                        "2px solid #d94343";
+button.style.border="2px solid #24945a";
+button.style.background="#effaf4";
 
-                    button.style.background =
-                        "#fff1f1";
+}
 
-                }
+});
 
-                if(
-                    value === currentMathAnswer
-                ){
+}
 
-                    button.style.border =
-                        "2px solid #24945a";
+mathQuestion++;
 
-                    button.style.background =
-                        "#effaf4";
+if(mathCorrect>0&&mathCorrect%5===0){
 
-                }
+if(mathDifficulty==="easy")
+mathDifficulty="medium";
 
-            }
-        );
+else if(mathDifficulty==="medium")
+mathDifficulty="hard";
 
-    }
+}
 
-    localStorage.setItem(
-        "mind_streak",
-        streak
-    );
-
-    updateStats();
-
-    /*
-       Every 5 correct answers,
-       increase difficulty.
-    */
-
-    if(
-        mathCorrect > 0 &&
-        mathCorrect % 5 === 0
-    ){
-
-        if(
-            mathDifficulty === "easy"
-        ){
-
-            mathDifficulty = "medium";
-
-        }
-        else if(
-            mathDifficulty === "medium"
-        ){
-
-            mathDifficulty = "hard";
-
-        }
-
-    }
-
-    mathQuestion++;
-
-    setTimeout(
-        nextMath,
-        1200
-    );
+setTimeout(nextMath,1200);
 
 }
 
 function showMathResults(){
 
-    const average =
-        mathTimes.length
-        ? mathTimes.reduce(
-            (a,b)=>a+b,
-            0
-        ) / mathTimes.length
-        : 0;
+const average=
+mathTimes.length?
+mathTimes.reduce((a,b)=>a+b,0)/mathTimes.length:0;
 
-    const percentage =
-        mathTotal
-        ? (
-            mathCorrect /
-            mathTotal
-        ) * 100
-        : 0;
+const percentage=
+mathTotal?(mathCorrect/mathTotal)*100:0;
 
-    let advice;
+let advice;
 
-    if(
-        percentage >= 90
-    ){
+if(percentage>=90)
+advice="Accuracy is strong. Try reducing your response time.";
 
-        advice =
-            "Accuracy is strong. Now focus on reducing response time.";
+else if(percentage>=70)
+advice="Accuracy is decent. Focus on avoiding rushed mistakes.";
 
-    }
-    else if(
-        percentage >= 70
-    ){
+else
+advice="Focus on accuracy first. Speed can come later.";
 
-        advice =
-            "Your accuracy is decent. Work on avoiding rushed mistakes.";
+let bars="";
 
-    }
-    else{
+const max=Math.max(...mathTimes,1);
 
-        advice =
-            "Focus on accuracy first. Speed can come later.";
+mathTimes.forEach((time,index)=>{
 
-    }
+const height=Math.max(10,(time/max)*160);
 
-    let bars = "";
+bars+=`
 
-    const max =
-        Math.max(
-            ...mathTimes,
-            1
-        );
+<div
+class="bar"
+style="height:${height}px"
+>
+<span>Q${index+1}</span>
+</div>
 
-    mathTimes.forEach(
-        (time,index) => {
+`;
 
-            const height =
-                Math.max(
-                    10,
-                    (time/max)*160
-                );
+});
 
-            bars += `
+showGame(`
 
-                <div
-                    class="bar"
-                    style="height:${height}px"
-                >
+<div class="panel">
 
-                    <span>
-                        Q${index+1}
-                    </span>
+<div class="panel-head">
 
-                </div>
+<div>
 
-            `;
+<h2>🧮 Math Results</h2>
 
-        }
-    );
+<p>Complete performance.</p>
 
-    showGame(`
+</div>
 
-        <div class="panel">
+<button class="secondary" onclick="backHome()">
+Home
+</button>
 
-            <div class="panel-head">
+</div>
 
-                <div>
+<div class="result-grid">
 
-                    <h2>🧮 Math Results</h2>
+<div class="result-card">
+<small>Score</small>
+<strong>${mathCorrect}/${mathTotal}</strong>
+</div>
 
-                    <p>
-                        Your complete performance.
-                    </p>
+<div class="result-card">
+<small>Correct</small>
+<strong>${mathCorrect}</strong>
+</div>
 
-                </div>
+<div class="result-card">
+<small>Wrong</small>
+<strong>${mathWrong}</strong>
+</div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    Home
-                </button>
+<div class="result-card">
+<small>Accuracy</small>
+<strong>${percentage.toFixed(1)}%</strong>
+</div>
 
-            </div>
+<div class="result-card">
+<small>Average Time</small>
+<strong>${average.toFixed(2)}s</strong>
+</div>
 
-            <div class="result-grid">
+<div class="result-card">
+<small>Difficulty</small>
+<strong>${mathDifficulty}</strong>
+</div>
 
-                <div class="result-card">
-                    <small>Score</small>
-                    <strong>
-                        ${mathCorrect}/${mathTotal}
-                    </strong>
-                </div>
+</div>
 
-                <div class="result-card">
-                    <small>Correct</small>
-                    <strong>
-                        ${mathCorrect}
-                    </strong>
-                </div>
+<h3>Time Per Question</h3>
 
-                <div class="result-card">
-                    <small>Wrong</small>
-                    <strong>
-                        ${mathWrong}
-                    </strong>
-                </div>
+<div class="graph">
+${bars}
+</div>
 
-                <div class="result-card">
-                    <small>Accuracy</small>
-                    <strong>
-                        ${percentage.toFixed(1)}%
-                    </strong>
-                </div>
+<h3>What to improve</h3>
 
-                <div class="result-card">
-                    <small>Average Time</small>
-                    <strong>
-                        ${average.toFixed(2)}s
-                    </strong>
-                </div>
+<p>${advice}</p>
 
-                <div class="result-card">
-                    <small>Final Difficulty</small>
-                    <strong>
-                        ${mathDifficulty}
-                    </strong>
-                </div>
+<div class="result-actions">
 
-            </div>
+<button class="primary" onclick="openMathSetup()">
+Try Again
+</button>
 
-            <h3>
-                Time Per Question
-            </h3>
+<button class="secondary" onclick="backHome()">
+Other Challenges
+</button>
 
-            <div class="graph">
-                ${bars}
-            </div>
+</div>
 
-            <h3>
-                What to improve
-            </h3>
+</div>
 
-            <p>
-                ${advice}
-            </p>
-
-            <div class="result-actions">
-
-                <button
-                    class="primary"
-                    onclick="openMathSetup()"
-                >
-                    Try Again
-                </button>
-
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    Other Challenges
-                </button>
-
-            </div>
-
-        </div>
-
-    `);
+`);
 
 }
 
 
 /* =====================================================
-   TYPING SETUP
+TYPING SETUP
 ===================================================== */
 
-let typingLimit = 30;
+let typingLimit=30;
 
 function openTypingSetup(){
 
-    typingLimit = 30;
+typingLimit=30;
 
-    showGame(`
+showGame(`
 
-        <div class="panel">
+<div class="panel">
 
-            <div class="panel-head">
+<div class="panel-head">
 
-                <div>
+<div>
 
-                    <h2>⌨️ Typing Speed</h2>
+<h2>⌨️ Typing Speed</h2>
 
-                    <p>
-                        Choose how long you want to type.
-                    </p>
+<p>Select your typing duration.</p>
 
-                </div>
+</div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-            </div>
+</div>
 
-            <div class="setting">
+<div class="setting">
 
-                <label>TIME LIMIT</label>
+<label>TIME LIMIT</label>
 
-                <div class="time-buttons">
+<div class="time-buttons">
 
-                    <button
-                        class="time-btn"
-                        onclick="selectTypingTime(15,this)"
-                    >
-                        15 sec
-                    </button>
+<button
+class="time-btn"
+onclick="selectTypingTime(15,this)"
+>
+15 sec
+</button>
 
-                    <button
-                        class="time-btn active"
-                        onclick="selectTypingTime(30,this)"
-                    >
-                        30 sec
-                    </button>
+<button
+class="time-btn active"
+onclick="selectTypingTime(30,this)"
+>
+30 sec
+</button>
 
-                    <button
-                        class="time-btn"
-                        onclick="selectTypingTime(60,this)"
-                    >
-                        60 sec
-                    </button>
+<button
+class="time-btn"
+onclick="selectTypingTime(60,this)"
+>
+60 sec
+</button>
 
-                    <button
-                        class="time-btn"
-                        onclick="selectTypingTime(120,this)"
-                    >
-                        120 sec
-                    </button>
+<button
+class="time-btn"
+onclick="selectTypingTime(120,this)"
+>
+120 sec
+</button>
 
-                </div>
+</div>
 
-                <div class="custom-row">
+<div class="custom-row">
 
-                    <input
-                        id="customTypingTime"
-                        class="input"
-                        type="number"
-                        min="5"
-                        max="600"
-                        placeholder="Custom seconds"
-                    >
+<input
+id="customTypingTime"
+class="input"
+type="number"
+min="5"
+max="600"
+placeholder="Custom seconds"
+>
 
-                    <button
-                        class="secondary"
-                        onclick="useCustomTypingTime()"
-                    >
-                        Use Custom
-                    </button>
+<button
+class="secondary"
+onclick="useCustomTypingTime()"
+>
+Use Custom
+</button>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <br>
+<br>
 
-            <button
-                class="primary"
-                onclick="startTyping()"
-            >
-                Start Typing
-            </button>
+<button class="primary" onclick="startTyping()">
+Start Typing
+</button>
 
-        </div>
+</div>
 
-    `);
+`);
 
 }
 
-function selectTypingTime(
-    seconds,
-    button
-){
+function selectTypingTime(seconds,button){
 
-    typingLimit = seconds;
+typingLimit=Number(seconds);
 
-    document
-        .querySelectorAll(
-            ".time-btn"
-        )
-        .forEach(
-            btn =>
-                btn.classList.remove(
-                    "active"
-                )
-        );
+document.querySelectorAll(".time-btn")
+.forEach(btn=>btn.classList.remove("active"));
 
-    button.classList.add("active");
+button.classList.add("active");
+
+const custom=document.getElementById("customTypingTime");
+
+if(custom)custom.value="";
 
 }
 
 function useCustomTypingTime(){
 
-    const input =
-        document.getElementById(
-            "customTypingTime"
-        );
+const input=document.getElementById("customTypingTime");
 
-    const value =
-        Number(input.value);
+const value=Number(input.value);
 
-    if(
-        value < 5 ||
-        value > 600
-    ){
+if(
+!Number.isFinite(value)||
+value<5||
+value>600
+){
 
-        alert(
-            "Enter a time between 5 and 600 seconds."
-        );
+alert("Enter a time between 5 and 600 seconds.");
 
-        return;
+return;
 
-    }
+}
 
-    typingLimit = value;
+typingLimit=Math.floor(value);
 
-    document
-        .querySelectorAll(
-            ".time-btn"
-        )
-        .forEach(
-            btn =>
-                btn.classList.remove(
-                    "active"
-                )
-        );
+document.querySelectorAll(".time-btn")
+.forEach(btn=>btn.classList.remove("active"));
 
-    input.style.borderColor =
-        "#5b5ce2";
+input.style.borderColor="#5b5ce2";
 
 }
 
 
 /* =====================================================
-   TYPING GAME
+TYPING GAME
 ===================================================== */
 
-const typingTexts = [
+const typingTexts=[
 
-    "Focus is built through repeated practice and patience.",
+"Focus is built through repeated practice and patience.",
 
-    "Speed means nothing when accuracy is ignored.",
+"Speed means nothing when accuracy is ignored.",
 
-    "Your brain becomes stronger when you challenge it regularly.",
+"Your brain becomes stronger when you challenge it regularly.",
 
-    "Small improvements repeated every day can create large results.",
+"Small improvements repeated every day can create large results.",
 
-    "Good typing requires rhythm accuracy and concentration.",
+"Good typing requires rhythm accuracy and concentration.",
 
-    "Learning becomes easier when difficult tasks are practiced consistently."
+"Learning becomes easier when difficult tasks are practiced consistently."
 
 ];
 
-let typingText = "";
-let typingStart = 0;
-let typingTimer = null;
-let typingFinished = false;
-let typingWrong = 0;
+let typingText="";
+let typingStart=0;
+let typingFinished=false;
+let typingWrong=0;
+let typingWrongPositions=[];
+let typingRemaining=0;
 
 function startTyping(){
 
-    typingText =
-        typingTexts[
-            random(
-                0,
-                typingTexts.length-1
-            )
-        ];
+typingText=
+typingTexts[
+random(0,typingTexts.length-1)
+];
 
-    typingStart = 0;
-    typingFinished = false;
-    typingWrong = 0;
+typingStart=0;
+typingFinished=false;
+typingWrong=0;
+typingWrongPositions=[];
+typingRemaining=typingLimit;
 
-    showGame(`
+showGame(`
 
-        <div class="panel">
+<div class="panel">
 
-            <div class="panel-head">
+<div class="panel-head">
 
-                <div>
+<div>
 
-                    <h2>⌨️ Typing Speed</h2>
+<h2>⌨️ Typing Speed</h2>
 
-                    <p>
-                        Type the text exactly as shown.
-                    </p>
+<p>
+Type the text below exactly as shown.
+</p>
 
-                </div>
+</div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-            </div>
+</div>
 
-            <div class="timer">
+<div class="timer">
 
-                <span id="typingTimer">
-                    ${typingLimit}
-                </span>s
+<span id="typingTimer">
+${String(typingLimit).padStart(2,"0")}
+</span>s
 
-            </div>
+</div>
 
-            <div class="typing-box">
+<div class="typing-box">
 
-                <div
-                    id="typingText"
-                    class="typing-text"
-                ></div>
+<div class="reference-label">
+Type this:
+</div>
 
-                <input
-                    id="typingInput"
-                    class="input"
-                    autocomplete="off"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                    placeholder="Start typing..."
-                >
+<!--
+REFERENCE TEXT
+User will look at this text and type it below.
+-->
 
-            </div>
+<div
+id="typingText"
+class="typing-text"
+></div>
 
-        </div>
+<!--
+USER INPUT
+-->
 
-    `);
+<input
+id="typingInput"
+class="input"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="off"
+spellcheck="false"
+placeholder="Type here..."
+>
 
-    renderTyping();
+</div>
 
-    const input =
-        document.getElementById(
-            "typingInput"
-        );
+</div>
 
-    input.focus();
+`);
 
-    input.addEventListener(
-        "input",
-        handleTyping
-    );
+renderTyping();
+
+const input=document.getElementById("typingInput");
+
+input.focus();
+
+input.addEventListener("keydown",typingKeyDown);
+input.addEventListener("input",handleTyping);
+
+}
+
+
+/*
+IMPORTANT:
+
+Once a character has been typed incorrectly,
+that position is permanently marked wrong.
+
+The user cannot go back and edit an old
+character.
+
+Backspace/Delete are blocked.
+*/
+
+function typingKeyDown(event){
+
+if(typingFinished)return;
+
+if(
+event.key==="Backspace"||
+event.key==="Delete"||
+event.key==="ArrowLeft"||
+event.key==="ArrowUp"||
+event.key==="ArrowDown"||
+event.key==="Home"
+){
+
+event.preventDefault();
+
+}
+
+}
+
+function handleTyping(event){
+
+if(typingFinished)return;
+
+const input=event.target;
+
+if(!typingStart){
+
+typingStart=Date.now();
+
+startTypingTimer();
+
+}
+
+const value=input.value;
+
+/*
+Prevent browser/input methods from
+removing already typed characters.
+
+If length somehow decreases,
+restore previous state.
+*/
+
+if(
+typeof handleTyping.lastLength==="number" &&
+value.length<handleTyping.lastLength
+){
+
+input.value=handleTyping.lastValue;
+
+return;
+
+}
+
+handleTyping.lastLength=value.length;
+handleTyping.lastValue=value;
+
+/*
+Check newly typed characters.
+
+Every wrong position is stored permanently.
+*/
+
+typingWrongPositions=[];
+
+for(
+let i=0;
+i<value.length;
+i++
+){
+
+if(value[i]!==typingText[i]){
+
+typingWrongPositions.push(i);
+
+}
+
+}
+
+typingWrong=typingWrongPositions.length;
+
+renderTyping();
+
+/*
+GAME COMPLETES IMMEDIATELY
+when the whole reference text is typed
+correctly.
+*/
+
+if(value===typingText){
+
+finishTyping();
+
+}
+
+}
+
+
+/*
+Reset typing memory every time a new game starts.
+*/
+
+function resetTypingInputMemory(){
+
+handleTyping.lastLength=0;
+handleTyping.lastValue="";
 
 }
 
 function renderTyping(){
 
-    const box =
-        document.getElementById(
-            "typingText"
-        );
+const box=document.getElementById("typingText");
 
-    const input =
-        document.getElementById(
-            "typingInput"
-        );
+const input=document.getElementById("typingInput");
 
-    if(!box) return;
+if(!box)return;
 
-    const value =
-        input
-        ? input.value
-        : "";
+const value=input?input.value:"";
 
-    let html = "";
+let html="";
 
-    for(
-        let i=0;
-        i<typingText.length;
-        i++
-    ){
+for(
+let i=0;
+i<typingText.length;
+i++
+){
 
-        const char =
-            typingText[i];
+const char=typingText[i];
 
-        if(
-            i < value.length
-        ){
+if(i<value.length){
 
-            if(
-                value[i] === char
-            ){
+if(value[i]===char){
 
-                html +=
-                `<span class="correct">
-                    ${escapeHTML(char)}
-                </span>`;
+html+=`
+<span class="correct">
+${escapeHTML(char)}
+</span>
+`;
 
-            }
-            else{
+}else{
 
-                html +=
-                `<span class="wrong">
-                    ${escapeHTML(char)}
-                </span>`;
-
-            }
-
-        }
-        else if(
-            i === value.length
-        ){
-
-            html +=
-            `<span class="current">
-                ${escapeHTML(char)}
-            </span>`;
-
-        }
-        else{
-
-            html +=
-                escapeHTML(char);
-
-        }
-
-    }
-
-    box.innerHTML = html;
+html+=`
+<span class="wrong">
+${escapeHTML(char)}
+</span>
+`;
 
 }
 
-function handleTyping(e){
+}
 
-    if(typingFinished) return;
+else if(i===value.length){
 
-    const input = e.target;
-
-    const index =
-        input.value.length-1;
-
-    /*
-       Wrong character stays wrong.
-       User cannot erase backwards.
-    */
-
-    if(
-        index >= 0 &&
-        input.value[index] !==
-        typingText[index]
-    ){
-
-        typingWrong++;
-
-    }
-
-    if(!typingStart){
-
-        typingStart =
-            Date.now();
-
-        startTypingTimer();
-
-    }
-
-    renderTyping();
-
-    /*
-       Complete immediately when
-       entire text is typed correctly.
-    */
-
-    if(
-        input.value ===
-        typingText
-    ){
-
-        finishTyping();
-
-    }
+html+=`
+<span class="current">
+${escapeHTML(char)}
+</span>
+`;
 
 }
+
+else{
+
+html+=escapeHTML(char);
+
+}
+
+}
+
+box.innerHTML=html;
+
+}
+
+
+/*
+Typing timer.
+
+Countdown begins when user types
+the first character.
+
+00 = results immediately.
+*/
 
 function startTypingTimer(){
 
-    let remaining =
-        typingLimit;
+let remaining=typingLimit;
 
-    clearInterval(typingTimer);
+clearInterval(typingTimer);
 
-    typingTimer =
-        setInterval(
-            function(){
+typingTimer=setInterval(function(){
 
-                remaining--;
+remaining--;
 
-                const timer =
-                    document.getElementById(
-                        "typingTimer"
-                    );
+typingRemaining=remaining;
 
-                if(timer){
+const timer=document.getElementById("typingTimer");
 
-                    timer.textContent =
-                        remaining;
+if(timer){
 
-                }
+timer.textContent=
+String(Math.max(remaining,0)).padStart(2,"0");
 
-                if(
-                    remaining <= 0
-                ){
+}
 
-                    clearInterval(
-                        typingTimer
-                    );
+if(remaining<=0){
 
-                    finishTyping();
+clearInterval(typingTimer);
 
-                }
+finishTyping();
 
-            },
-            1000
-        );
+}
+
+},1000);
 
 }
 
 function finishTyping(){
 
-    if(typingFinished) return;
+if(typingFinished)return;
 
-    typingFinished = true;
+typingFinished=true;
 
-    clearInterval(typingTimer);
+clearInterval(typingTimer);
 
-    const input =
-        document.getElementById(
-            "typingInput"
-        );
+const input=document.getElementById("typingInput");
 
-    if(input)
-        input.disabled = true;
+if(input)input.disabled=true;
 
-    const elapsed =
-        typingStart
-        ? (
-            Date.now() -
-            typingStart
-        ) / 1000
-        : 0;
+const elapsed=
+typingStart?
+(Date.now()-typingStart)/1000:0;
 
-    let correct = 0;
+let correct=0;
+let wrong=0;
 
-    if(input){
+const typed=input?input.value:"";
 
-        for(
-            let i=0;
-            i<input.value.length;
-            i++
-        ){
+for(
+let i=0;
+i<typed.length;
+i++
+){
 
-            if(
-                input.value[i] ===
-                typingText[i]
-            ){
+if(typed[i]===typingText[i])
+correct++;
 
-                correct++;
+else
+wrong++;
 
-            }
+}
 
-        }
+typingWrong=wrong;
 
-    }
+const typedCharacters=typed.length;
 
-    const accuracy =
-        typingText.length
-        ? (
-            correct /
-            typingText.length
-        ) * 100
-        : 0;
+const accuracy=
+typedCharacters>0?
+(correct/typedCharacters)*100:0;
 
-    if(
-        accuracy >= 90
-    ){
+const minutes=elapsed/60;
 
-        streak++;
+const wpm=
+minutes>0?
+(correct/5)/minutes:0;
 
-        addXP(20);
+/*
+XP + STREAK
+*/
 
-    }
-    else{
+if(
+accuracy>=90 &&
+typedCharacters>0
+){
 
-        streak = 0;
+streak++;
+addXP(20);
 
-    }
+}else{
 
-    localStorage.setItem(
-        "mind_streak",
-        streak
-    );
+streak=0;
 
-    updateStats();
+}
 
-    showGame(`
+saveStreak();
 
-        <div class="panel">
+showTypingResults(
+elapsed,
+correct,
+typedCharacters,
+accuracy,
+wpm,
+wrong
+);
 
-            <div class="panel-head">
+}
 
-                <div>
+function showTypingResults(
+elapsed,
+correct,
+typed,
+accuracy,
+wpm,
+wrong
+){
 
-                    <h2>⌨️ Typing Results</h2>
+let advice;
 
-                    <p>
-                        Your performance.
-                    </p>
+if(accuracy>=95){
 
-                </div>
+advice=
+"Accuracy is excellent. Now work on increasing speed.";
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    Home
-                </button>
+}else if(accuracy>=80){
 
-            </div>
+advice=
+"Accuracy is decent. Try to reduce mistakes while slowly increasing speed.";
 
-            <div class="result-grid">
+}else{
 
-                <div class="result-card">
-                    <small>Time Limit</small>
-                    <strong>
-                        ${typingLimit}s
-                    </strong>
-                </div>
+advice=
+"Focus on accuracy first. Slow down and type the reference text carefully.";
 
-                <div class="result-card">
-                    <small>Accuracy</small>
-                    <strong>
-                        ${accuracy.toFixed(1)}%
-                    </strong>
-                </div>
+}
 
-                <div class="result-card">
-                    <small>Wrong</small>
-                    <strong>
-                        ${typingWrong}
-                    </strong>
-                </div>
+showGame(`
 
-                <div class="result-card">
-                    <small>Correct</small>
-                    <strong>
-                        ${correct}
-                    </strong>
-                </div>
+<div class="panel">
 
-                <div class="result-card">
-                    <small>Time Used</small>
-                    <strong>
-                        ${elapsed.toFixed(1)}s
-                    </strong>
-                </div>
+<div class="panel-head">
 
-            </div>
+<div>
 
-            <p>
+<h2>⌨️ Typing Results</h2>
 
-                ${
-                    accuracy >= 90
-                    ? "Your accuracy is strong. Now focus on increasing speed."
-                    : "Focus on accuracy first. Speed can come later."
-                }
+<p>Your typing performance.</p>
 
-            </p>
+</div>
 
-            <div class="result-actions">
+<button class="secondary" onclick="backHome()">
+Home
+</button>
 
-                <button
-                    class="primary"
-                    onclick="openTypingSetup()"
-                >
-                    Try Again
-                </button>
+</div>
 
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    Other Challenges
-                </button>
+<div class="result-grid">
 
-            </div>
+<div class="result-card">
 
-        </div>
+<small>Time Limit</small>
 
-    `);
+<strong>
+${typingLimit}s
+</strong>
+
+</div>
+
+<div class="result-card">
+
+<small>Time Used</small>
+
+<strong>
+${elapsed.toFixed(1)}s
+</strong>
+
+</div>
+
+<div class="result-card">
+
+<small>WPM</small>
+
+<strong>
+${wpm.toFixed(1)}
+</strong>
+
+</div>
+
+<div class="result-card">
+
+<small>Accuracy</small>
+
+<strong>
+${accuracy.toFixed(1)}%
+</strong>
+
+</div>
+
+<div class="result-card">
+
+<small>Correct Characters</small>
+
+<strong>
+${correct}
+</strong>
+
+</div>
+
+<div class="result-card">
+
+<small>Wrong Characters</small>
+
+<strong>
+${wrong}
+</strong>
+
+</div>
+
+</div>
+
+<h3>Performance</h3>
+
+<div class="graph">
+
+<div
+class="bar"
+style="
+height:${Math.max(
+10,
+Math.min(160,(accuracy/100)*160)
+)}px
+"
+>
+
+<span>
+Accuracy
+</span>
+
+</div>
+
+<div
+class="bar"
+style="
+height:${Math.max(
+10,
+Math.min(160,(wpm/100)*160)
+)}px
+"
+>
+
+<span>
+WPM
+</span>
+
+</div>
+
+</div>
+
+<h3>What to improve</h3>
+
+<p>
+${advice}
+</p>
+
+<h3>Reference Text</h3>
+
+<div class="typing-text">
+${escapeHTML(typingText)}
+</div>
+
+<div class="result-actions">
+
+<button
+class="primary"
+onclick="openTypingSetup()"
+>
+Try Again
+</button>
+
+<button
+class="secondary"
+onclick="backHome()"
+>
+Other Challenges
+</button>
+
+</div>
+
+</div>
+
+`);
 
 }
 
 
 /* =====================================================
-   NUMBER PUZZLE
+NUMBER PUZZLE
 ===================================================== */
 
-let puzzleAnswer = 0;
+let puzzleAnswer=0;
 
 function openPuzzle(){
 
-    const type =
-        random(1,4);
+const type=random(1,4);
 
-    let sequence = [];
+let sequence=[];
 
-    if(type === 1){
+if(type===1){
 
-        const start =
-            random(2,15);
+const start=random(2,15);
+const diff=random(2,9);
 
-        const diff =
-            random(2,9);
+sequence=[
+start,
+start+diff,
+start+diff*2,
+start+diff*3,
+"?"
+];
 
-        sequence = [
+puzzleAnswer=start+diff*4;
 
-            start,
-            start+diff,
-            start+diff*2,
-            start+diff*3,
-            "?"
+}
 
-        ];
+else if(type===2){
 
-        puzzleAnswer =
-            start+diff*4;
+const start=random(2,6);
 
-    }
+sequence=[
+start,
+start*2,
+start*4,
+start*8,
+"?"
+];
 
-    else if(type === 2){
+puzzleAnswer=start*16;
 
-        const start =
-            random(2,6);
+}
 
-        sequence = [
+else if(type===3){
 
-            start,
-            start*2,
-            start*4,
-            start*8,
-            "?"
+const a=random(2,8);
+const b=random(2,8);
 
-        ];
+sequence=[
+a,
+a+b,
+a+b*2,
+a+b*3,
+"?"
+];
 
-        puzzleAnswer =
-            start*16;
+puzzleAnswer=a+b*4;
 
-    }
+}
 
-    else if(type === 3){
+else{
 
-        const a =
-            random(2,8);
+const start=random(10,30);
 
-        const b =
-            random(2,8);
+sequence=[
+start,
+start-2,
+start-4,
+start-6,
+"?"
+];
 
-        sequence = [
+puzzleAnswer=start-8;
 
-            a,
-            a+b,
-            a+b*2,
-            a+b*3,
-            "?"
+}
 
-        ];
+showGame(`
 
-        puzzleAnswer =
-            a+b*4;
+<div class="panel">
 
-    }
+<div class="panel-head">
 
-    else{
+<div>
 
-        const start =
-            random(10,30);
+<h2>🧩 Number Puzzle</h2>
 
-        sequence = [
+<p>
+Find the missing number.
+</p>
 
-            start,
-            start-2,
-            start-4,
-            start-6,
-            "?"
+</div>
 
-        ];
+<button class="secondary" onclick="backHome()">
+← Back
+</button>
 
-        puzzleAnswer =
-            start-8;
+</div>
 
-    }
+<div class="math-question">
+${sequence.join(" → ")}
+</div>
 
-    showGame(`
+<input
+id="puzzleInput"
+class="input"
+inputmode="numeric"
+autocomplete="off"
+placeholder="Enter your answer"
+>
 
-        <div class="panel">
+<br><br>
 
-            <div class="panel-head">
+<button
+class="primary"
+onclick="checkPuzzle()"
+>
+Check Answer
+</button>
 
-                <div>
+<p
+id="puzzleMessage"
+style="
+text-align:center;
+line-height:1.7
+"
+></p>
 
-                    <h2>🧩 Number Puzzle</h2>
+</div>
 
-                    <p>
-                        Find the missing number.
-                    </p>
+`);
 
-                </div>
-
-                <button
-                    class="secondary"
-                    onclick="backHome()"
-                >
-                    ← Back
-                </button>
-
-            </div>
-
-            <div class="math-question">
-                ${sequence.join(" → ")}
-            </div>
-
-            <input
-                id="puzzleInput"
-                class="input"
-                inputmode="numeric"
-                autocomplete="off"
-                placeholder="Enter your answer"
-            >
-
-            <br><br>
-
-            <button
-                class="primary"
-                onclick="checkPuzzle()"
-            >
-                Check Answer
-            </button>
-
-            <p
-                id="puzzleMessage"
-                style="text-align:center;line-height:1.7"
-            ></p>
-
-        </div>
-
-    `);
-
-    document
-        .getElementById(
-            "puzzleInput"
-        )
-        .focus();
+document.getElementById("puzzleInput").focus();
 
 }
 
 function checkPuzzle(){
 
-    const input =
-        document.getElementById(
-            "puzzleInput"
-        );
+const input=document.getElementById("puzzleInput");
 
-    const message =
-        document.getElementById(
-            "puzzleMessage"
-        );
+const message=document.getElementById("puzzleMessage");
 
-    const userAnswer =
-        Number(input.value);
+const userAnswer=Number(input.value);
 
-    if(
-        userAnswer ===
-        puzzleAnswer
-    ){
+if(userAnswer===puzzleAnswer){
 
-        streak++;
+streak++;
 
-        addXP(15);
+addXP(15);
 
-        message.innerHTML = `
+saveStreak();
 
-            <span class="good">
+input.disabled=true;
 
-                ✓ CORRECT!
+message.innerHTML=`
 
-                <br>
+<span class="good">
 
-                Answer: ${puzzleAnswer}
+✓ CORRECT!
 
-                <br>
+<br>
 
-                Loading a new puzzle...
+Answer: ${puzzleAnswer}
 
-            </span>
+<br><br>
 
-        `;
+New puzzle loading...
 
-        localStorage.setItem(
-            "mind_streak",
-            streak
-        );
+</span>
 
-        updateStats();
+`;
 
-        setTimeout(
-            openPuzzle,
-            1000
-        );
+setTimeout(openPuzzle,1000);
 
-    }
-    else{
+}else{
 
-        streak = 0;
+streak=0;
 
-        message.innerHTML = `
+saveStreak();
 
-            <span class="bad">
+input.disabled=true;
 
-                ✕ WRONG!
+message.innerHTML=`
 
-                <br>
+<span class="bad">
 
-                Correct answer:
-                ${puzzleAnswer}
+✕ WRONG!
 
-                <br><br>
+<br>
 
-                Loading a new puzzle...
+Your answer: ${userAnswer}
 
-            </span>
+<br>
 
-        `;
+Correct answer: ${puzzleAnswer}
 
-        localStorage.setItem(
-            "mind_streak",
-            streak
-        );
+<br><br>
 
-        updateStats();
+New puzzle loading...
 
-        setTimeout(
-            openPuzzle,
-            1500
-        );
+</span>
 
-    }
+`;
+
+setTimeout(openPuzzle,1500);
+
+}
 
 }
 
