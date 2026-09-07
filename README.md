@@ -1,4 +1,4 @@
-🧠 MindRush
+# 🧠 MindRush
 
 MindRush is a browser-based brain training challenge hub designed to improve calculation, typing speed, memory, and logical thinking.
 
